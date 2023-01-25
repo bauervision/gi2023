@@ -1,0 +1,97 @@
+Converting script [1 / 9]	[\Scripts\SafeFramer.cs]
+	Fragments : 1
+		[ 0] : Line:   30	Other mod.	[Screen.safeArea]
+
+Converting script [2 / 9]	[\Invector-3rdPersonController\ItemManager\Scripts\vJoystickMouseInput.cs]
+	Fragments : 8
+		[ 0] : Line:   20	InputMethod   GetAxis             	(horizontal)
+		[ 1] : Line:   27	InputMethod   GetAxis             	(vertical)
+		[ 2] : Line:   71	Other mod.	[Cursor.visible]
+		[ 3] : Line:   73	Other mod.	[Cursor.visible]
+		[ 4] : Line:   87	Other mod.	[Cursor.visible]
+		[ 5] : Line:  109	InputMethod   GetButton           	(submitButton)
+		[ 6] : Line:  122	InputMethod   GetButtonUp         	(submitButton)
+		[ 7] : Line:  135	InputMethod   GetButtonDown       	(submitButton)
+
+Converting script [3 / 9]	[\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR_Demo.cs]
+	Fragments : 10
+		[ 0] : Line:  166	InputMethod   GetKeyDown          	(KeyCode.Space)
+		[ 1] : Line:  194	InputMethod   GetKeyDown          	(KeyCode.Delete)
+		[ 2] : Line:  194	InputMethod   GetKeyDown          	(KeyCode.Backspace)
+		[ 3] : Line:  203	InputMethod   GetKeyDown          	(KeyCode.LeftArrow)
+		[ 4] : Line:  208	InputMethod   GetKeyDown          	(KeyCode.RightArrow)
+		[ 5] : Line:  213	InputMethod   GetMouseButtonDown  	(0)
+		[ 6] : Line:  215	InputProperty mousePosition       
+		[ 7] : Line:  226	InputMethod   GetMouseButtonDown  	(1)
+		[ 8] : Line:  226	InputMethod   GetMouseButtonDown  	(2)
+		[ 9] : Line:  231	InputMethod   GetAxis             	("Mouse ScrollWheel")
+
+Converting script [4 / 9]	[\BOXOPHOBIC\The Vegetation Engine\Demo\Scripts\TVESimpleFPSController.cs]
+	Fragments : 7
+		[ 0] : Line:   26	Other mod.	[Cursor.lockState]
+		[ 1] : Line:   27	Other mod.	[Cursor.visible]
+		[ 2] : Line:   34	InputMethod   GetKey              	(KeyCode.LeftShift)
+		[ 3] : Line:   41	InputMethod   GetAxis             	("Vertical")
+		[ 4] : Line:   41	InputMethod   GetAxis             	("Horizontal")
+		[ 5] : Line:   50	InputMethod   GetAxis             	("Mouse Y")
+		[ 6] : Line:   53	InputMethod   GetAxis             	("Mouse X")
+
+Converting script [5 / 9]	[\Invector-3rdPersonController\Melee Combat\Simple Melee AI\Scripts\vSimpleMeleeAI_Companion.cs]
+	Fragments : 4
+		[ 0] : Line:   38	InputMethod   GetKeyDown          	(KeyCode.Alpha1)
+		[ 1] : Line:   43	InputMethod   GetKeyDown          	(KeyCode.Alpha2)
+		[ 2] : Line:   48	InputMethod   GetKeyDown          	(KeyCode.Alpha3)
+		[ 3] : Line:   52	InputMethod   GetKeyDown          	(KeyCode.Alpha4)
+
+Converting script [6 / 9]	[\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs]
+	Fragments : 7
+		[ 0] : Line:   61	InputMethod   GetKeyDown          	(KeyCode.LeftArrow)
+		[ 1] : Line:   65	InputMethod   GetKeyDown          	(KeyCode.RightArrow)
+		[ 2] : Line:   69	InputMethod   GetKeyDown          	(KeyCode.Delete)
+		[ 3] : Line:   74	InputMethod   GetMouseButtonDown  	(0)
+		[ 4] : Line:   77	InputProperty mousePosition       
+		[ 5] : Line:   84	InputMethod   GetAxis             	("Mouse ScrollWheel")
+		[ 6] : Line:   90	InputMethod   GetMouseButtonDown  	(2)
+
+Converting script [7 / 9]	[\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\InvectorJoystick.cs]
+	Fragments : 8
+		[ 0] : Line:   61	InputMethod   AxisExists          	(horizontalAxisName)
+		[ 1] : Line:   63	InputMethod   VirtualAxisReference	(horizontalAxisName)
+		[ 2] : Line:   67	InputMethod   VirtualAxis         	(horizontalAxisName)
+		[ 3] : Line:   68	InputMethod   RegisterVirtualAxis 	(m_HorizontalVirtualAxis)
+		[ 4] : Line:   75	InputMethod   AxisExists          	(verticalAxisName)
+		[ 5] : Line:   77	InputMethod   VirtualAxisReference	(verticalAxisName)
+		[ 6] : Line:   81	InputMethod   VirtualAxis         	(verticalAxisName)
+		[ 7] : Line:   82	InputMethod   RegisterVirtualAxis 	(m_VerticalVirtualAxis)
+
+Converting script [8 / 9]	[\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\MoveCamera.cs]
+	Fragments : 8
+		[ 0] : Line:   39	InputMethod   AxisExists          	(cameraAxisX)
+		[ 1] : Line:   41	InputMethod   VirtualAxisReference	(cameraAxisX)
+		[ 2] : Line:   45	InputMethod   VirtualAxis         	(cameraAxisX)
+		[ 3] : Line:   46	InputMethod   RegisterVirtualAxis 	(m_CameraX_VirtualAxis)
+		[ 4] : Line:   48	InputMethod   AxisExists          	(cameraAxisY)
+		[ 5] : Line:   50	InputMethod   VirtualAxisReference	(cameraAxisY)
+		[ 6] : Line:   54	InputMethod   VirtualAxis         	(cameraAxisY)
+		[ 7] : Line:   55	InputMethod   RegisterVirtualAxis 	(m_CameraY_VirtualAxis)
+
+Converting script [9 / 9]	[\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\vButtonOnOFF.cs]
+	Fragments : 3
+		[ 0] : Line:   15	InputMethod   SetButtonDown       	(Name)
+		[ 1] : Line:   21	InputMethod   SetButtonUp         	(Name)
+		[ 2] : Line:   27	InputMethod   SetButtonUp         	(Name)
+
+
+9 scripts modified!
+Overwriting actual scripts...
+	[0 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\Scripts\SafeFramer.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Scripts\SafeFramer.cs]
+	[1 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\Invector-3rdPersonController\ItemManager\Scripts\vJoystickMouseInput.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\ItemManager\Scripts\vJoystickMouseInput.cs]
+	[2 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR_Demo.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR_Demo.cs]
+	[3 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\BOXOPHOBIC\The Vegetation Engine\Demo\Scripts\TVESimpleFPSController.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\BOXOPHOBIC\The Vegetation Engine\Demo\Scripts\TVESimpleFPSController.cs]
+	[4 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\Invector-3rdPersonController\Melee Combat\Simple Melee AI\Scripts\vSimpleMeleeAI_Companion.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\Melee Combat\Simple Melee AI\Scripts\vSimpleMeleeAI_Companion.cs]
+	[5 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs]
+	[6 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\InvectorJoystick.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\InvectorJoystick.cs]
+	[7 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\MoveCamera.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\MoveCamera.cs]
+	[8 / 9] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-10-10-58\Assets-After/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\vButtonOnOFF.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\vButtonOnOFF.cs]
+
+Overwriting COMPLETED!

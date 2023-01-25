@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rock2BVSnow
+  m_Shader: {fileID: 4800000, guid: ea174fbd265dd964fb74d1689f2edc1e, type: 3}
+  m_ShaderKeywords: _DETAIL_MULX2 _MAINNORMALBLENDCHOICE_MAIN_NORMAL _METALLICGLOSSMAP
+    _NORMALMAP _PARALLAXMAP _SNOWDISPLACE_ON _SNOWMASKBLENDSTYLE_ADDITIVE _SNOWMASKCHOICE2_MASK_R
+    _SNOWMASKCHOICE_MASK_R _SPECGLOSSMAP _TOPMASKBLENDSTYLE_ADDITIVE _TOPMASKCHOICE2_MASK_R
+    _TOPMASKCHOICE_MASK_R _TOPNORMALBLENDCHOICE_MAIN_NORMAL
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Bump:
+        m_Texture: {fileID: 2800000, guid: 3a821c28b70b2b447ab3e66e3a2229e5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 3a821c28b70b2b447ab3e66e3a2229e5, type: 3}
+        m_Scale: {x: 9, y: 9}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap2:
+        m_Texture: {fileID: 2800000, guid: 3a821c28b70b2b447ab3e66e3a2229e5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 016e95565131cbe4bbe66d399a1c4efa, type: 3}
+        m_Scale: {x: 9, y: 9}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 2800000, guid: 047414cbd2e318e41a7d1557a27d36c5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 162c810bf5419394188c1c46a5db065e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex2:
+        m_Texture: {fileID: 2800000, guid: 162c810bf5419394188c1c46a5db065e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: e0a129ea7aef5bf49a02cdc7e2c0c943, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: e33cfde976023144c9866837549818a7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 2800000, guid: 7235df9ad3bd98540b629d630d1f62c5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SnowNorm:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SnowNorm2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SnowSpec:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SnowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 2800000, guid: e0a129ea7aef5bf49a02cdc7e2c0c943, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopNorm:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpPower: 1
+    - _BumpScale: 1.15
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Intensity: 1
+    - _MainBlendNormals: 0.5
+    - _MainDetailMultiplier: 1
+    - _MainNormalBlendChoice: 0
+    - _MainShown: 1
+    - _Mask1Shown: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Opacity: 1
+    - _Parallax: 0.05
+    - _RimPower: 3
+    - _SmoothnessTextureChannel: 0
+    - _Snow: 0
+    - _SnowBlendNormals: 0.5
+    - _SnowDepth: 2.2
+    - _SnowGlossiness: 0.5
+    - _SnowLevel: 0
+    - _SnowMask2Blend: 0
+    - _SnowMask2Tiling: 1
+    - _SnowMaskBlendStyle: 0
+    - _SnowMaskChoice: 0
+    - _SnowMaskChoice2: 0
+    - _SnowMaskDepth: 1
+    - _SnowMaskDepth2: 1
+    - _SnowMaskIntensityDepth: 1
+    - _SnowMaskIntensityDepth2: 1
+    - _SnowMaskShown: 1
+    - _SnowMaskTiling: 1
+    - _SnowNMPower: 1
+    - _SnowShown: 0
+    - _SnowSpecTiling: 1
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TopAlbedoBlend: 0.5
+    - _TopBlendNormals: 0.5
+    - _TopDepth: 0.7
+    - _TopDetailMultiplier: 1
+    - _TopGlossiness: 0
+    - _TopLevel: -10
+    - _TopMask2Blend: 0
+    - _TopMask2Tiling: 1
+    - _TopMaskBlendStyle: 0
+    - _TopMaskChoice: 0
+    - _TopMaskChoice2: 0
+    - _TopMaskDepth: 1
+    - _TopMaskDepth2: 1
+    - _TopMaskIntensityDepth: 1
+    - _TopMaskIntensityDepth2: 1
+    - _TopMaskTiling: 1
+    - _TopNMPower: 1
+    - _TopNormalBlendChoice: 0
+    - _TopShown: 0
+    - _UVSec: 0
+    - _ZWrite: 1
+    - _showSnowMask: 0
+    - _showTopMask: 0
+    - _snowDisplace: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GlossColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RimColor: {r: 0.26, g: 0.19, b: 0.16, a: 0}
+    - _SnowColor: {r: 0.69085974, g: 0.6990259, b: 0.7075472, a: 1}
+    - _SnowDirection: {r: 0, g: 3.35, b: 0, a: 1}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _TopColor: {r: 1, g: 0.894, b: 0.71, a: 1}
+    - _TopDirection: {r: 0, g: 1.5, b: 0, a: 1}

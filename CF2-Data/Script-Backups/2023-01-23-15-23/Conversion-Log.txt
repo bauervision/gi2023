@@ -1,0 +1,76 @@
+Converting script [1 / 8]	[\Scripts\SafeFramer.cs]
+	Fragments : 1
+		[ 0] : Line:   30	Other mod.	[Screen.safeArea]
+
+Converting script [2 / 8]	[\Bird Flocks\Scripts\Demo\SmoothCameraOrbit.cs]
+	Fragments : 8
+		[ 0] : Line:   82	InputMethod   GetMouseButton      	(2)
+		[ 1] : Line:   82	InputMethod   GetKey              	(KeyCode.LeftAlt)
+		[ 2] : Line:   82	InputMethod   GetKey              	(KeyCode.LeftControl)
+		[ 3] : Line:   84	InputMethod   GetAxis             	("Mouse Y")
+		[ 4] : Line:   87	InputMethod   GetMouseButton      	(0)
+		[ 5] : Line:   89	InputMethod   GetAxis             	("Mouse X")
+		[ 6] : Line:   90	InputMethod   GetAxis             	("Mouse Y")
+		[ 7] : Line:  135	InputMethod   GetAxis             	("Mouse ScrollWheel")
+
+Converting script [3 / 8]	[\Invector-AIController\Scripts\AI\vAICompanionControl.cs]
+	Fragments : 1
+		[ 0] : Line:   15	InputMethod   GetKeyDown          	(followInput)
+
+Converting script [4 / 8]	[\Invector-AIController\Scripts\FPSController\Scripts\vFPSController.cs]
+	Fragments : 8
+		[ 0] : Line:   76	InputMethod   GetAxis             	(horizontalInput)
+		[ 1] : Line:   77	InputMethod   GetAxis             	(verticalInput)
+		[ 2] : Line:   84	InputMethod   GetKey              	(KeyCode.LeftShift)
+		[ 3] : Line:   85	InputMethod   GetKey              	(KeyCode.C)
+		[ 4] : Line:  105	InputMethod   GetKeyDown          	(KeyCode.Space)
+		[ 5] : Line:  130	InputMethod   GetKeyDown          	(KeyCode.Mouse0)
+		[ 6] : Line:  137	InputMethod   GetAxis             	(rotateCameraXInput)
+		[ 7] : Line:  139	InputMethod   GetAxis             	(rotateCameraYInput)
+
+Converting script [5 / 8]	[\Invector-AIController\Scripts\FPSController\Scripts\vFPSWeaponManager.cs]
+	Fragments : 2
+		[ 0] : Line:   56	InputMethod   GetKeyDown          	(weapons[i].selectKey)
+		[ 1] : Line:   78	Other mod.	[Cursor.lockState]
+
+Converting script [6 / 8]	[\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\InvectorJoystick.cs]
+	Fragments : 8
+		[ 0] : Line:   61	InputMethod   AxisExists          	(horizontalAxisName)
+		[ 1] : Line:   63	InputMethod   VirtualAxisReference	(horizontalAxisName)
+		[ 2] : Line:   67	InputMethod   VirtualAxis         	(horizontalAxisName)
+		[ 3] : Line:   68	InputMethod   RegisterVirtualAxis 	(m_HorizontalVirtualAxis)
+		[ 4] : Line:   75	InputMethod   AxisExists          	(verticalAxisName)
+		[ 5] : Line:   77	InputMethod   VirtualAxisReference	(verticalAxisName)
+		[ 6] : Line:   81	InputMethod   VirtualAxis         	(verticalAxisName)
+		[ 7] : Line:   82	InputMethod   RegisterVirtualAxis 	(m_VerticalVirtualAxis)
+
+Converting script [7 / 8]	[\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\MoveCamera.cs]
+	Fragments : 8
+		[ 0] : Line:   39	InputMethod   AxisExists          	(cameraAxisX)
+		[ 1] : Line:   41	InputMethod   VirtualAxisReference	(cameraAxisX)
+		[ 2] : Line:   45	InputMethod   VirtualAxis         	(cameraAxisX)
+		[ 3] : Line:   46	InputMethod   RegisterVirtualAxis 	(m_CameraX_VirtualAxis)
+		[ 4] : Line:   48	InputMethod   AxisExists          	(cameraAxisY)
+		[ 5] : Line:   50	InputMethod   VirtualAxisReference	(cameraAxisY)
+		[ 6] : Line:   54	InputMethod   VirtualAxis         	(cameraAxisY)
+		[ 7] : Line:   55	InputMethod   RegisterVirtualAxis 	(m_CameraY_VirtualAxis)
+
+Converting script [8 / 8]	[\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\vButtonOnOFF.cs]
+	Fragments : 3
+		[ 0] : Line:   15	InputMethod   SetButtonDown       	(Name)
+		[ 1] : Line:   21	InputMethod   SetButtonUp         	(Name)
+		[ 2] : Line:   27	InputMethod   SetButtonUp         	(Name)
+
+
+8 scripts modified!
+Overwriting actual scripts...
+	[0 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Scripts\SafeFramer.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Scripts\SafeFramer.cs]
+	[1 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Bird Flocks\Scripts\Demo\SmoothCameraOrbit.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Bird Flocks\Scripts\Demo\SmoothCameraOrbit.cs]
+	[2 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Invector-AIController\Scripts\AI\vAICompanionControl.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-AIController\Scripts\AI\vAICompanionControl.cs]
+	[3 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Invector-AIController\Scripts\FPSController\Scripts\vFPSController.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-AIController\Scripts\FPSController\Scripts\vFPSController.cs]
+	[4 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Invector-AIController\Scripts\FPSController\Scripts\vFPSWeaponManager.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-AIController\Scripts\FPSController\Scripts\vFPSWeaponManager.cs]
+	[5 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\InvectorJoystick.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\InvectorJoystick.cs]
+	[6 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\MoveCamera.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\MoveCamera.cs]
+	[7 / 8] from  [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/CF2-Data/Script-Backups/2023-01-23-15-23\Assets-After/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\vButtonOnOFF.cs] to [C:/Bauer/Unity Dev/Games/Galo Islands/Galo Islands/Galo Islands/Assets/\Invector-3rdPersonController\Add-ons\Controller_Mobile\Basic\Scripts\vButtonOnOFF.cs]
+
+Overwriting COMPLETED!
