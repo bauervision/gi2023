@@ -47,22 +47,64 @@ namespace Galo
         // Start is called before the first frame update
         void Start()
         {
+            // let's grab our starting tribe and add them as playable characters
+            List<GameObject> myTribe = new List<GameObject>();
+            // only grab the first 3 for now
+            for (int i = 0; i < 3; i++)
+                myTribe.Add(Instantiate(DataManager.instance.currentTribe[i], _playerModelParent.transform));
 
+            // now set them
             _Primary = _activePlayerModel = _playerModelParent.transform.GetChild(0).gameObject;
-            _Primary.GetComponent<CharacterData>().playerType = PlayerType.RUNNER;
+            InitializeRunner(_Primary.GetComponent<CharacterData>());
+            currentCharacterData = _Primary.GetComponent<CharacterData>();
 
             _Secondary = _playerModelParent.transform.GetChild(1).gameObject;
-            _Secondary.GetComponent<CharacterData>().playerType = PlayerType.FIGHTER;
+            InitializeFighter(_Secondary.GetComponent<CharacterData>());
             _Secondary.SetActive(false);
 
             _Tertiary = _playerModelParent.transform.GetChild(2).gameObject;
-            _Tertiary.GetComponent<CharacterData>().playerType = PlayerType.CLIMBER;
+            InitializeClimber(_Tertiary.GetComponent<CharacterData>());
             _Tertiary.SetActive(false);
 
             poof.SetActive(false);
             flash.SetActive(false);
+
+            // prepare for init
+            controllerAnimator.SetInteger("AttackMax", currentCharacterData.attackMax);
+            controllerAnimator.enabled = false;
+            _controller.enabled = false;
+            StartCoroutine(ReInit());
             IntitializeCharacterStats();
 
+        }
+        void InitializeRunner(CharacterData characterData)
+        {
+            characterData.playerType = PlayerType.RUNNER;
+            characterData.runSpeed = 9;// runner
+            characterData.attackMax = 2;
+            characterData.multiJump = 1;
+            characterData.climbSpeed = 0;
+            characterData.jumpHeight = 5;
+        }
+
+        void InitializeFighter(CharacterData characterData)
+        {
+            characterData.playerType = PlayerType.FIGHTER;
+            characterData.runSpeed = 7;
+            characterData.attackMax = 4;// fighter
+            characterData.multiJump = 2;
+            characterData.climbSpeed = 0;
+            characterData.jumpHeight = 3;
+        }
+
+        void InitializeClimber(CharacterData characterData)
+        {
+            characterData.playerType = PlayerType.CLIMBER;
+            characterData.runSpeed = 6;
+            characterData.attackMax = 3;
+            characterData.multiJump = 3;//climber
+            characterData.climbSpeed = 3;//climber
+            characterData.jumpHeight = 3;
         }
 
         public void CallCharacterSwitch()
@@ -83,10 +125,8 @@ namespace Galo
                 UIManager.instance.ChangePlayerTypeSprite(myCurrentPlayerType);
 
             // first hide the special attack button unless this is Caden
-            if (specialAttackButton == null)
-                specialAttackButton = GameObject.Find("Button-Special");
-            else
-                specialAttackButton.SetActive(currentCharacterData.myName == "Caden");
+
+            specialAttackButton.SetActive(currentCharacterData.playerType == PlayerType.RUNNER);
 
             currentPlayerName = currentCharacterData.myName;
             if (UIManager.instance)
@@ -123,6 +163,7 @@ namespace Galo
             // set the new model mesh
             _activePlayerModel = _tempMesh;
             _tempMesh = null;
+
             // prepare for reinit
             controllerAnimator.SetInteger("AttackMax", currentCharacterData.attackMax);
             controllerAnimator.enabled = false;

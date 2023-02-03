@@ -37,7 +37,7 @@ namespace Galo
     [System.Serializable]
     public class Tribe
     {
-        public Dictionary<string, int> tribe;
+        public string[] playables;
     }
 
     [System.Serializable]
@@ -51,6 +51,7 @@ namespace Galo
         public List<GaloCollectible> collection;
 
         public List<GaloLevel> availableLevels;
+        public Tribe tribe;
 
         public GaloPlayerData()
         {

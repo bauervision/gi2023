@@ -34,11 +34,61 @@ namespace Galo
         public Sprite[] mingBoys;
         public Sprite[] mingGirls;
 
-        public Sprite[] testBoyArrayPreShuffle;
+        public List<Sprite> allBoySprites, allGirlSprites;
+        public List<GameObject> allBoyMeshes, allGirlMeshes;
+
+        public GameObject[] allCharacters;
         public Sprite[] testBoyArrayShuffled;
 
         private void Awake() { instance = this; }
+        private void Start()
+        {
+            InitializeAllCharacters();
 
+
+        }
+
+        void InitializeAllCharacters()
+        {
+            //save all the girls
+            foreach (Sprite girl in alonGirls)
+                allGirlSprites.Add(girl);
+            foreach (Sprite girl in lunaGirls)
+                allGirlSprites.Add(girl);
+            foreach (Sprite girl in creyGirls)
+                allGirlSprites.Add(girl);
+            foreach (Sprite girl in mingGirls)
+                allGirlSprites.Add(girl);
+
+            foreach (GameObject girl in alonGirlCharacters)
+                allGirlMeshes.Add(girl);
+            foreach (GameObject girl in lunaGirlCharacters)
+                allGirlMeshes.Add(girl);
+            foreach (GameObject girl in creyGirlCharacters)
+                allGirlMeshes.Add(girl);
+            foreach (GameObject girl in mingGirlCharacters)
+                allGirlMeshes.Add(girl);
+
+            // save all the boys
+            foreach (Sprite boy in alonBoys)
+                allBoySprites.Add(boy);
+            foreach (Sprite boy in lunaBoys)
+                allBoySprites.Add(boy);
+            foreach (Sprite boy in creyBoys)
+                allBoySprites.Add(boy);
+            foreach (Sprite boy in mingBoys)
+                allBoySprites.Add(boy);
+
+            foreach (GameObject boy in alonBoyCharacters)
+                allBoyMeshes.Add(boy);
+            foreach (GameObject boy in lunaBoyCharacters)
+                allBoyMeshes.Add(boy);
+            foreach (GameObject boy in creyBoyCharacters)
+                allBoyMeshes.Add(boy);
+            foreach (GameObject boy in mingBoyCharacters)
+                allBoyMeshes.Add(boy);
+
+        }
 
         public void RandomizeTribe()
         {
@@ -84,6 +134,9 @@ namespace Galo
 
             List<Sprite> tribe = Shuffle(finalTribe, finalTribeCharacters);
 
+            // store
+            chosenTribe = finalTribeCharacters.ToArray();
+
             // now set the sprites
             randomTribeImages[0].sprite = tribe.ElementAt(0);
             randomTribeImages[1].sprite = tribe.ElementAt(1);
@@ -94,6 +147,48 @@ namespace Galo
             randomTribeImages[6].sprite = tribe.ElementAt(6);
             randomTribeImages[7].sprite = tribe.ElementAt(7);
 
+        }
+
+        public void AllGirlTribe()
+        {
+            List<Sprite> tribe = Shuffle(allGirlSprites, allGirlMeshes);
+            // now set the sprites
+            randomTribeImages[0].sprite = tribe.ElementAt(0);
+            randomTribeImages[1].sprite = tribe.ElementAt(1);
+            randomTribeImages[2].sprite = tribe.ElementAt(2);
+            randomTribeImages[3].sprite = tribe.ElementAt(3);
+            randomTribeImages[4].sprite = tribe.ElementAt(4);
+            randomTribeImages[5].sprite = tribe.ElementAt(5);
+            randomTribeImages[6].sprite = tribe.ElementAt(6);
+            randomTribeImages[7].sprite = tribe.ElementAt(7);
+
+            // remove the last 4 characters not selected in the whole list
+            // be sure to preserve our initial list
+            List<GameObject> adjustedGirls = new List<GameObject>(allGirlMeshes);
+            // get rid of the last 4 we dont need
+            adjustedGirls.RemoveRange(8, 4);
+            chosenTribe = adjustedGirls.ToArray();
+        }
+
+        public void AllBoyTribe()
+        {
+            List<Sprite> tribe = Shuffle(allBoySprites, allBoyMeshes);
+            // now set the sprites
+            randomTribeImages[0].sprite = tribe.ElementAt(0);
+            randomTribeImages[1].sprite = tribe.ElementAt(1);
+            randomTribeImages[2].sprite = tribe.ElementAt(2);
+            randomTribeImages[3].sprite = tribe.ElementAt(3);
+            randomTribeImages[4].sprite = tribe.ElementAt(4);
+            randomTribeImages[5].sprite = tribe.ElementAt(5);
+            randomTribeImages[6].sprite = tribe.ElementAt(6);
+            randomTribeImages[7].sprite = tribe.ElementAt(7);
+
+            // remove the last 4 characters not selected in the whole list
+            // be sure to preserve our initial list
+            List<GameObject> adjustedBoys = new List<GameObject>(allBoyMeshes);
+            // get rid of the last 4 we dont need
+            adjustedBoys.RemoveRange(8, 4);
+            chosenTribe = adjustedBoys.ToArray();
         }
 
         public List<Sprite> Shuffle(List<Sprite> gender, List<GameObject> characters)
@@ -114,8 +209,6 @@ namespace Galo
                 shuffledCharacters[k] = shuffledCharacters[n];
                 shuffledCharacters[n] = value2;
                 characters = shuffledCharacters;
-
-                chosenTribe = characters.ToArray();
             }
 
             return shuffledList;
@@ -137,9 +230,22 @@ namespace Galo
         public void SelectTribe()
         {
             // we've chosen our tribe, save the character choices, and their placement for later
-            DataManager.instance.currentTribe = chosenTribe;
+            DataManager.instance.SetTribe(chosenTribe);
+        }
+
+        public GameObject[] GetSavedTribe(string[] names)
+        {
+            // we have a list of names for each tribe, pull each out and return to datamanager
+            List<GameObject> savedTribe = new List<GameObject>();
 
 
+            for (int i = 0; i < names.Length; i++)
+            {
+                GameObject found = allCharacters.ToList().Find(c => c.name == names[i]);
+                savedTribe.Add(found);
+            }
+
+            return savedTribe.ToArray();
         }
     }
 }

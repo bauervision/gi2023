@@ -35,7 +35,10 @@ namespace Galo
 
         private void Awake() { instance = this; }
 
-
+        // private void Start()
+        // {
+        //     print($"{galoLevel.ToString()} has been loaded");
+        // }
 
         public void LevelCompleted()
         {

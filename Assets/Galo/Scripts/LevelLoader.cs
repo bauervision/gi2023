@@ -28,7 +28,7 @@ namespace Galo
         {
             continueButton = GameObject.Find("ContinueButton");
             welcomeButton = GameObject.Find("WelcomeButton");
-            welcomeButton = GameObject.Find("UpdateButton");
+            updateButton = GameObject.Find("UpdateButton");
 
             // we find that this is a returning player, show continue button
             if (!DataManager.instance.firstTimePlayer)
@@ -42,9 +42,9 @@ namespace Galo
                 if (updateButton != null)
                     updateButton.SetActive(true);
             }
-            else // this is the first time
+            else // still first time player
             {
-                if (updateButton != null)
+                if (continueButton != null)
                     continueButton.SetActive(false);
 
                 if (welcomeButton != null)

@@ -118,7 +118,6 @@ namespace Galo
 
         }
 
-        public void NoLongerFirstTime() { firstTimePlayer = false; }
 
         public void SaveNewUserData()
         {
@@ -142,13 +141,33 @@ namespace Galo
 
         public void LoadReturningPlayer(GaloPlayerData player)
         {
-            firstTimePlayer = false;
+            firstTimePlayer = (player.tribe.playables == null || player.tribe.playables.Length == 0);
             playerData = allPlayers.lastUsedPlayer = player;
 
-            // if (LoginManager.instance)
-            //     LoginManager.instance.ShowInitialScreen();
+            // since we have a tribe already saved, let's set them
+            if (!firstTimePlayer)
+                currentTribe = RandomTribe.instance.GetSavedTribe(player.tribe.playables);
+
+
         }
 
+        public void SetTribe(GameObject[] newTribe)
+        {
+            // store right away for playing
+            currentTribe = newTribe;
+            // and update the players saved data for next time
+            List<string> tribeList = new List<string>();
+            foreach (GameObject person in newTribe)
+                tribeList.Add(person.name);
+
+            if (playerData.tribe == null)
+                playerData.tribe = new();
+
+            playerData.tribe.playables = tribeList.ToArray();
+            allPlayers.lastUsedPlayer = playerData;
+            DataSaver.SaveFile();
+            firstTimePlayer = false;
+        }
 
 
         public void SetBestLevelTime(int currentLevelIndex, LevelTime currentTime)
