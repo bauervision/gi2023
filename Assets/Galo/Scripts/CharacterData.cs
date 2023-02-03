@@ -1,8 +1,11 @@
+using Invector.vMelee;
 using UnityEngine;
 namespace Galo
 {
+    public enum Gender { MALE, FEMALE };
     public class CharacterData : MonoBehaviour
     {
+        public Gender gender;
         public string myName;
         public string ability;
         public int runSpeed;
@@ -10,7 +13,7 @@ namespace Galo
         public int climbSpeed;
         public int multiJump;
         public int attackMax;
-        public GameObject[] myAttackObjects;
+        public vMeleeAttackObject[] myAttackObjects;
         public PlayerType playerType;
         // other things to add
         // attachments

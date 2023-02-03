@@ -33,6 +33,13 @@ namespace Galo
         }
     }
 
+
+    [System.Serializable]
+    public class Tribe
+    {
+        public Dictionary<string, int> tribe;
+    }
+
     [System.Serializable]
     public class GaloPlayerData
     {

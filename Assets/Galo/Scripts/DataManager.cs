@@ -15,6 +15,7 @@ namespace Galo
         public GaloPlayerData playerData;
 
         public GaloCollectible latestCollectible;
+        public GameObject[] currentTribe;
 
         public bool firstTimePlayer;
         public string CurrentLevelToLoad;

@@ -22,9 +22,15 @@ namespace Galo
 
         private void Start()
         {
-            walkButton = GameObject.Find("Button-WalkToggle-Sprite").GetComponent<TouchButtonSpriteAnimator>();
-            _walkSprite = UIManager.instance.GetWalkSprite();
-            _runSprite = UIManager.instance.GetRunSprite();
+            GameObject walkToggleSprite = GameObject.Find("Button-WalkToggle-Sprite");
+            if (walkToggleSprite != null)
+                walkButton = walkToggleSprite.GetComponent<TouchButtonSpriteAnimator>();
+
+            if (UIManager.instance != null)
+            {
+                _walkSprite = UIManager.instance.GetWalkSprite();
+                _runSprite = UIManager.instance.GetRunSprite();
+            }
         }
 
 

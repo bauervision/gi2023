@@ -12,36 +12,53 @@ namespace Galo
     public class CharacterSwitcher : MonoBehaviour
     {
         public static CharacterSwitcher instance;
+        public string currentPlayerName;
+        public PlayerType myCurrentPlayerType;
+
         public GameObject _spawnPoint;
-        public GameObject _playerModelParent;
-        public GameObject activePlayerModel;
-        public GameObject _CadenMesh, _MilesMesh, _LukeMesh;
+
 
         public GameObject poof;
         public GameObject flash;
         public GameObject specialAttackButton;
 
-        GameObject _tempMesh;
+
         public Animator controllerAnimator;
 
         vThirdPersonController _controller;
+        public GameObject _playerModelParent;
+        GameObject _activePlayerModel;
+        GameObject _Primary, _Secondary, _Tertiary;
+
         CharacterData currentCharacterData;
 
-        public string currentPlayerName;
-        public PlayerType myCurrentPlayerType;
+        GameObject _tempMesh;
+
+
 
         private void Awake()
         {
             instance = this;
             _controller = FindObjectOfType<vThirdPersonController>();
+            _playerModelParent = transform.GetChild(0).gameObject;
             specialAttackButton = GameObject.Find("Button-Special");
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            _MilesMesh.SetActive(false);
-            _LukeMesh.SetActive(false);
+
+            _Primary = _activePlayerModel = _playerModelParent.transform.GetChild(0).gameObject;
+            _Primary.GetComponent<CharacterData>().playerType = PlayerType.RUNNER;
+
+            _Secondary = _playerModelParent.transform.GetChild(1).gameObject;
+            _Secondary.GetComponent<CharacterData>().playerType = PlayerType.FIGHTER;
+            _Secondary.SetActive(false);
+
+            _Tertiary = _playerModelParent.transform.GetChild(2).gameObject;
+            _Tertiary.GetComponent<CharacterData>().playerType = PlayerType.CLIMBER;
+            _Tertiary.SetActive(false);
+
             poof.SetActive(false);
             flash.SetActive(false);
             IntitializeCharacterStats();
@@ -58,12 +75,12 @@ namespace Galo
 
         void IntitializeCharacterStats()
         {
-
-            currentCharacterData = activePlayerModel.GetComponent<CharacterData>();
+            currentCharacterData = _activePlayerModel.GetComponent<CharacterData>();
             myCurrentPlayerType = currentCharacterData.playerType;
 
             //update the UI to show the new type
-            UIManager.instance.ChangePlayerTypeSprite(myCurrentPlayerType);
+            if (UIManager.instance != null)
+                UIManager.instance.ChangePlayerTypeSprite(myCurrentPlayerType);
 
             // first hide the special attack button unless this is Caden
             if (specialAttackButton == null)
@@ -77,6 +94,7 @@ namespace Galo
                 UIManager.instance.SetCurrentCharacterName(currentPlayerName);
                 UIManager.instance.SetCurrentCharacterAbility(currentCharacterData.ability);
             }
+
             // now set the data
             _controller.freeSpeed.runningSpeed = currentCharacterData.runSpeed;
             _controller.jumpHeight = currentCharacterData.jumpHeight;
@@ -95,15 +113,15 @@ namespace Galo
             //GetComponent<vMeleeManager>().enabled = false;
             //AudioManager.instance.PlayChange();
             //push to the last
-            activePlayerModel.transform.SetAsLastSibling();
-            activePlayerModel.SetActive(false);
+            _activePlayerModel.transform.SetAsLastSibling();
+            _activePlayerModel.SetActive(false);
 
             //find next
             _tempMesh = _playerModelParent.transform.GetChild(0).gameObject;
             _tempMesh.SetActive(true);
 
             // set the new model mesh
-            activePlayerModel = _tempMesh;
+            _activePlayerModel = _tempMesh;
             _tempMesh = null;
             // prepare for reinit
             controllerAnimator.SetInteger("AttackMax", currentCharacterData.attackMax);
@@ -122,12 +140,12 @@ namespace Galo
             controllerAnimator.enabled = true;
 
             yield return new WaitForSeconds(0.01f);
-            activePlayerModel.SetActive(true);
+            _activePlayerModel.SetActive(true);
             controllerAnimator.Rebind();
             _controller.enabled = true;
             _controller.UpdateMotor();
             controllerAnimator.SetInteger("AttackMax", currentCharacterData.attackMax);
-            GameObject[] currentAttackObjects = currentCharacterData.myAttackObjects;
+            vMeleeAttackObject[] currentAttackObjects = currentCharacterData.myAttackObjects;
             GetComponent<vMeleeManager>().UpdateMembers(currentAttackObjects);
 
         }

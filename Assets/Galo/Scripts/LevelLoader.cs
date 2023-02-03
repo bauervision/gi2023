@@ -13,7 +13,7 @@ namespace Galo
         public static LevelLoader instance;
 
 
-        GameObject continueButton, welcomeButton;
+        GameObject continueButton, welcomeButton, updateButton;
 
 
 
@@ -28,6 +28,8 @@ namespace Galo
         {
             continueButton = GameObject.Find("ContinueButton");
             welcomeButton = GameObject.Find("WelcomeButton");
+            welcomeButton = GameObject.Find("UpdateButton");
+
             // we find that this is a returning player, show continue button
             if (!DataManager.instance.firstTimePlayer)
             {
@@ -36,14 +38,20 @@ namespace Galo
 
                 if (welcomeButton != null)
                     welcomeButton.SetActive(false);
+
+                if (updateButton != null)
+                    updateButton.SetActive(true);
             }
             else // this is the first time
             {
-                if (continueButton != null)
+                if (updateButton != null)
                     continueButton.SetActive(false);
 
                 if (welcomeButton != null)
                     welcomeButton.SetActive(true);
+
+                if (updateButton != null)
+                    updateButton.SetActive(false);
             }
         }
 
