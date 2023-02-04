@@ -27,7 +27,7 @@ namespace Galo
 
         IEnumerator LoadSceneAsync(string sceneName)
         {
-            DataManager.instance.firstTimePlayer = false;
+            DataManager.instance.playerHasTribe = false;
             progressBar = GameObject.Find("SceneLoadProgress").GetComponent<Slider>();
             //Begin to load the Scene you specify
             loadingOperation = SceneManager.LoadSceneAsync(sceneName);

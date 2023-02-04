@@ -81,6 +81,7 @@ namespace Galo
         {
             characterData.playerType = PlayerType.RUNNER;
             characterData.runSpeed = 9;// runner
+            characterData.ability = "Flying Kick";
             characterData.attackMax = 2;
             characterData.multiJump = 1;
             characterData.climbSpeed = 0;
@@ -91,6 +92,7 @@ namespace Galo
         {
             characterData.playerType = PlayerType.FIGHTER;
             characterData.runSpeed = 7;
+            characterData.ability = "2x Jump";
             characterData.attackMax = 4;// fighter
             characterData.multiJump = 2;
             characterData.climbSpeed = 0;
@@ -101,9 +103,10 @@ namespace Galo
         {
             characterData.playerType = PlayerType.CLIMBER;
             characterData.runSpeed = 6;
+            characterData.ability = "3x Jump";
             characterData.attackMax = 3;
             characterData.multiJump = 3;//climber
-            characterData.climbSpeed = 3;//climber
+            characterData.climbSpeed = 4;//climber
             characterData.jumpHeight = 3;
         }
 

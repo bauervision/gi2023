@@ -76,7 +76,7 @@ namespace Galo
                 families[0].SetActive(true);
                 familyAnimator.SetTrigger("Appear");
             }
-            RandomTribe.instance.SetFamily(0);
+            TribeManager.instance.SetFamily(0);
 
         }
 
@@ -103,7 +103,7 @@ namespace Galo
             {
                 families[_familyIndex].SetActive(true);
                 familyAnimator.SetTrigger("Appear");
-                RandomTribe.instance.SetFamily(_familyIndex);
+                TribeManager.instance.SetFamily(_familyIndex);
             }
         }
 
@@ -121,7 +121,7 @@ namespace Galo
             {
                 families[_familyIndex].SetActive(true);
                 familyAnimator.SetTrigger("Appear");
-                RandomTribe.instance.SetFamily(_familyIndex);
+                TribeManager.instance.SetFamily(_familyIndex);
             }
 
 

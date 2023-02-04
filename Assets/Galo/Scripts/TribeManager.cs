@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace Galo
 {
-    public class RandomTribe : MonoBehaviour
+    public class TribeManager : MonoBehaviour
     {
-        public static RandomTribe instance;
+        public static TribeManager instance;
 
         // handle the actual character mesh assignments
         public GameObject[] chosenTribe;
@@ -22,9 +22,12 @@ namespace Galo
         public GameObject[] creyGirlCharacters;
         public GameObject[] mingBoyCharacters;
         public GameObject[] mingGirlCharacters;
+        public GameObject currentTribeGrid;
 
 
         public Image[] randomTribeImages;
+        public Image[] savedTribeImages;
+        public Image[] currentTribeImages;
         public Sprite[] alonBoys;
         public Sprite[] alonGirls;
         public Sprite[] lunaBoys;
@@ -38,7 +41,8 @@ namespace Galo
         public List<GameObject> allBoyMeshes, allGirlMeshes;
 
         public GameObject[] allCharacters;
-        public Sprite[] testBoyArrayShuffled;
+        public Sprite[] allCharacterSprites;
+
 
         private void Awake() { instance = this; }
         private void Start()
@@ -237,15 +241,25 @@ namespace Galo
         {
             // we have a list of names for each tribe, pull each out and return to datamanager
             List<GameObject> savedTribe = new List<GameObject>();
+            List<Sprite> savedTribeSprites = new List<Sprite>();
 
 
             for (int i = 0; i < names.Length; i++)
             {
                 GameObject found = allCharacters.ToList().Find(c => c.name == names[i]);
                 savedTribe.Add(found);
+                // update the sprites as well
+                Sprite foundSprite = allCharacterSprites.ToList().Find(c => c.name == names[i]);
+                savedTribeImages[i].sprite = foundSprite;
+                currentTribeImages[i].sprite = foundSprite;
             }
-
+            // send back actual characters to data manager
             return savedTribe.ToArray();
+        }
+
+        public void UpdateTribeChecker()
+        {
+            currentTribeGrid.SetActive(DataManager.instance.playerHasTribe);
         }
     }
 }

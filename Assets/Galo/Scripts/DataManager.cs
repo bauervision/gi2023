@@ -17,7 +17,7 @@ namespace Galo
         public GaloCollectible latestCollectible;
         public GameObject[] currentTribe;
 
-        public bool firstTimePlayer;
+        public bool playerHasTribe;
         public string CurrentLevelToLoad;
         private void Awake()
         {
@@ -122,7 +122,7 @@ namespace Galo
         public void SaveNewUserData()
         {
             playerData = new GaloPlayerData();
-            firstTimePlayer = true;
+            playerHasTribe = false;
 
             // if this is our first save, create the list and add the new player
             if (allPlayers == null)
@@ -141,12 +141,12 @@ namespace Galo
 
         public void LoadReturningPlayer(GaloPlayerData player)
         {
-            firstTimePlayer = (player.tribe.playables == null || player.tribe.playables.Length == 0);
+            playerHasTribe = (player.tribe.playables != null || player.tribe.playables.Length >= 0);
             playerData = allPlayers.lastUsedPlayer = player;
 
             // since we have a tribe already saved, let's set them
-            if (!firstTimePlayer)
-                currentTribe = RandomTribe.instance.GetSavedTribe(player.tribe.playables);
+            if (playerHasTribe)
+                currentTribe = TribeManager.instance.GetSavedTribe(player.tribe.playables);
 
 
         }
@@ -166,7 +166,7 @@ namespace Galo
             playerData.tribe.playables = tribeList.ToArray();
             allPlayers.lastUsedPlayer = playerData;
             DataSaver.SaveFile();
-            firstTimePlayer = false;
+            playerHasTribe = true;
         }
 
 

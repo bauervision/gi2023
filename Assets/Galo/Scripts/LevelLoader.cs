@@ -30,8 +30,8 @@ namespace Galo
             welcomeButton = GameObject.Find("WelcomeButton");
             updateButton = GameObject.Find("UpdateButton");
 
-            // we find that this is a returning player, show continue button
-            if (!DataManager.instance.firstTimePlayer)
+            // player has a tribe? show continue and update buttons
+            if (DataManager.instance.playerHasTribe)
             {
                 if (continueButton != null)
                     continueButton.SetActive(true);
@@ -42,7 +42,7 @@ namespace Galo
                 if (updateButton != null)
                     updateButton.SetActive(true);
             }
-            else // still first time player
+            else // player doesnt yet have a tribe
             {
                 if (continueButton != null)
                     continueButton.SetActive(false);
