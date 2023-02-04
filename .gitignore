@@ -11,6 +11,8 @@
 /[Uu]ser[Ss]ettings/
 /IOS Build/
 
+Assets/Galo/Networking/Mirror/
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/

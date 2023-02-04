@@ -711,33 +711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2223030471487147471, guid: c166457a2cd53b64ba4607ef4f7890c3,
-        type: 3}
-      propertyPath: currentTribe.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2223030471487147471, guid: c166457a2cd53b64ba4607ef4f7890c3,
-        type: 3}
-      propertyPath: currentTribe.Array.data[0]
-      value: 
-      objectReference: {fileID: 6383096256028005108, guid: a871a2b8276c0594fb1398577d48e289,
-        type: 3}
-    - target: {fileID: 2223030471487147471, guid: c166457a2cd53b64ba4607ef4f7890c3,
-        type: 3}
-      propertyPath: currentTribe.Array.data[1]
-      value: 
-      objectReference: {fileID: 5124657436005856409, guid: dc58c0967e61f354883f6cdb845b180b,
-        type: 3}
-    - target: {fileID: 2223030471487147471, guid: c166457a2cd53b64ba4607ef4f7890c3,
-        type: 3}
-      propertyPath: currentTribe.Array.data[2]
-      value: 
-      objectReference: {fileID: 5781122115427643690, guid: 2be4726a5f4093a47bb328d54e69d150,
-        type: 3}
     - target: {fileID: 2223030471487147472, guid: c166457a2cd53b64ba4607ef4f7890c3,
         type: 3}
       propertyPath: m_Name
-      value: DataManager / Level Loader
+      value: DataManager / Level Loader / Network
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c166457a2cd53b64ba4607ef4f7890c3, type: 3}

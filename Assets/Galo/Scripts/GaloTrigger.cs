@@ -78,7 +78,7 @@ namespace Galo
             selfCollider.isTrigger = true;
         }
 
-        protected virtual void OnTriggerEnter(Collider other)
+        public virtual void OnTriggerEnter(Collider other)
         {
             if (this.other == null && CanTrigger(other) && IsInTagMask(other.gameObject.tag) && IsInLayerMask(other.gameObject.layer))
             {
