@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 using TMPro;
 
-namespace Galo
+namespace Galo.Networking
 {
     public class GaloNetworkPlayer : NetworkBehaviour
     {

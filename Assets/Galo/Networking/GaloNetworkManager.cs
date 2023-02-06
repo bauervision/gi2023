@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 
 
-namespace Galo
+namespace Galo.Networking
 {
     public class GaloNetworkManager : NetworkManager
     {
