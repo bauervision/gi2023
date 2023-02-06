@@ -27,9 +27,6 @@ namespace Galo
 
         private void OnMouseDown() { Clicked.Invoke(); }
 
-
-
-
         public void HasMetCondition() { conditionMet = true; }
 
         void OnTriggerEnter(Collider other)
@@ -51,6 +48,14 @@ namespace Galo
                 }
                 else
                 {
+                    // if we found the blood
+                    if (myType == ItemType.IslandBlood)
+                    {
+                        // turn off any halos if they have been triggered
+                        if (Halo.instance.haloTriggered)
+                            Halo.instance.LocatedBlood();
+                    }
+
                     ConditionMet.Invoke();
                     AudioManager.instance.PlayCollectionSound(myType);
                     EnableThisObject(false);

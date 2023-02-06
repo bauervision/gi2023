@@ -19,6 +19,8 @@ namespace Galo
         public AudioClip notificationOff;
         public AudioClip punchingBag;
         public AudioClip deathSound;
+        public AudioClip haloSound;
+        public AudioClip haloPointsOnSound;
 
         private void Awake()
         {
@@ -76,6 +78,8 @@ namespace Galo
         public void PlayNotificationOff() { audioSource.PlayOneShot(notificationOff); }
         public void PlayPunchingBag() { audioSource.PlayOneShot(punchingBag); }
         public void PlayDeathSound() { audioSource.PlayOneShot(deathSound); }
+        public void PlayHaloSound() { audioSource.PlayOneShot(haloSound); }
+        public void PlayHaloPointsOnSound() { audioSource.PlayOneShot(haloPointsOnSound); }
 
 
     }

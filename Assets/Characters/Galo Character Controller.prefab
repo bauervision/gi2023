@@ -66824,6 +66824,7 @@ GameObject:
   - component: {fileID: 6731948664167519942}
   - component: {fileID: 6731948664167519941}
   - component: {fileID: 927877570815386395}
+  - component: {fileID: 6783291657336727167}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -66940,6 +66941,14 @@ MonoBehaviour:
   VignetteAmount: 0
   VignetteSoftness: 0.0001
   material: {fileID: 2100000, guid: 3aeedadbfc1ffb644834cb2b7d57aa77, type: 2}
+--- !u!124 &6783291657336727167
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731948664167519995}
+  m_Enabled: 1
 --- !u!1 &6731948664167711171
 GameObject:
   m_ObjectHideFlags: 0

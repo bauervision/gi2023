@@ -146,7 +146,8 @@ namespace Galo
 
             // since we have a tribe already saved, let's set them
             if (playerHasTribe)
-                currentTribe = TribeManager.instance.GetSavedTribe(player.tribe.playables);
+                if (TribeManager.instance)
+                    currentTribe = TribeManager.instance.GetSavedTribe(player.tribe.playables);
 
 
         }
