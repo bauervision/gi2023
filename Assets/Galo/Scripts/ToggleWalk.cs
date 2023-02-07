@@ -13,16 +13,21 @@ namespace Galo
         vThirdPersonController controller;
         public TouchButtonSpriteAnimator walkButton;
 
+        GameObject walkToggleButton;
+
         Sprite _walkSprite, _runSprite;
         private void Awake()
         {
             instance = this;
             controller = this.GetComponent<vThirdPersonController>();
+
         }
 
         private void Start()
         {
             GameObject walkToggleSprite = GameObject.Find("Button-WalkToggle-Sprite");
+            walkToggleButton = GameObject.Find("Button-WALKTOGGLE");
+
             if (walkToggleSprite != null)
                 walkButton = walkToggleSprite.GetComponent<TouchButtonSpriteAnimator>();
 
@@ -33,7 +38,22 @@ namespace Galo
             }
         }
 
+        public void Poisoned()
+        {
+            if (walkToggleButton)
+                walkToggleButton.SetActive(false);
 
+            controller.alwaysWalkByDefault = true;
+        }
+
+        public void Healed()
+        {
+            if (walkToggleButton)
+                walkToggleButton.SetActive(true);
+
+            if (controller.alwaysWalkByDefault)
+                controller.alwaysWalkByDefault = false;
+        }
 
         public void ToggleWalkState()
         {

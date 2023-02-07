@@ -11,6 +11,7 @@ namespace Galo
         public FlowerType flowerType;
         public UnityEvent onTriggerEnter = new UnityEvent();
 
+
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Player")
@@ -18,10 +19,12 @@ namespace Galo
                 if (flowerType == FlowerType.POISON)
                 {
                     print("Poisoned!");
+                    ToggleWalk.instance.Poisoned();
                 }
                 else
                 {
                     print("Healed!");
+                    ToggleWalk.instance.Healed();
                 }
 
                 //AudioManager.instance.PlayCollectionSound(myType);

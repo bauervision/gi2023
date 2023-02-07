@@ -42,6 +42,7 @@ namespace Galo
                         AudioManager.instance.PlayCollectionSound(myType);
                         ConditionMet.Invoke();
                         HasMetCondition();
+                        Halo.instance.GotBloodToHeart();
                     }
                     else
                         ConditionNotMet.Invoke();
@@ -53,7 +54,7 @@ namespace Galo
                     {
                         // turn off any halos if they have been triggered
                         if (Halo.instance.haloTriggered)
-                            Halo.instance.LocatedBlood();
+                            Halo.instance.LocatededBlood();
                     }
 
                     ConditionMet.Invoke();
