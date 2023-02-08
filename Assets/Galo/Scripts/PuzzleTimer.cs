@@ -11,6 +11,9 @@ namespace Galo
         private TextMeshProUGUI timerText;
         private float startTime;
         private float endTime;
+
+
+
         public bool finished = false;
 
         public LevelTime currentLevelTime;
@@ -75,6 +78,8 @@ namespace Galo
                 default: { return 50; }
             }
         }
+
+
 
     }
 

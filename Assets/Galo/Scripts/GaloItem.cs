@@ -54,7 +54,14 @@ namespace Galo
                     {
                         // turn off any halos if they have been triggered
                         if (Halo.instance.haloTriggered)
-                            Halo.instance.LocatededBlood();
+                            Halo.instance.LocatedBlood();
+                    }
+
+                    if (myType == ItemType.Oar)
+                    {
+                        // turn off any halos if they have been triggered
+                        if (Halo.instance.paddleTriggered)
+                            Halo.instance.LocatedPaddle();
                     }
 
                     ConditionMet.Invoke();

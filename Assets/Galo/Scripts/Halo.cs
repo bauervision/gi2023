@@ -8,9 +8,10 @@ namespace Galo
     public class Halo : MonoBehaviour
     {
         public static Halo instance;
-        public int haloActivationTime = 1;//time when halo becomes active
-        public int paddleStartTime = 0;
-        public int paddleActivationTime = 1;// additional time when paddle gets triggered
+
+        public int bloodHaloWaitTime = 2;
+        public int paddleHaloWaitTime = 2;
+
 
         public bool haloTriggered;
         public UnityEvent onShowHalo = new UnityEvent();
@@ -27,6 +28,8 @@ namespace Galo
 
         private void Awake() { instance = this; }
 
+        Coroutine bloodTimer;
+
         private void Start()
         {
             bloodPoints = GameObject.FindGameObjectsWithTag("HaloPoint");
@@ -34,6 +37,9 @@ namespace Galo
 
             InitHaloObjects(bloodPoints, out currentBloodPoint);
             InitHaloObjects(paddlePoints, out currentPaddlePoint);
+
+            // fire off the first timer that waits to see if player has a hard time finding the blood
+            bloodTimer = StartCoroutine(TriggerHaloEvent(() => DisplayBloodHalo(), bloodHaloWaitTime));
 
         }
 
@@ -61,33 +67,6 @@ namespace Galo
             }
         }
 
-
-        private void Update()
-        {
-            if (PuzzleTimer.instance.currentLevelTime.minutes == haloActivationTime && !haloTriggered)
-            {
-                haloTriggered = true;
-                // turn on the particles
-                onShowHalo.Invoke();
-                // play the sound
-                AudioManager.instance.PlayHaloSound();
-            }
-
-            // make sure we've set paddle start time first
-            if (paddleStartTime != 0)
-            {
-                if (PuzzleTimer.instance.currentLevelTime.minutes == (paddleStartTime + paddleActivationTime) && !paddleTriggered)
-                {
-                    paddleTriggered = true;
-                    ToggleHaloLights(paddlePoints, currentPaddlePoint, false);
-                    // turn on the paddle halo
-                    onShowPaddle.Invoke();
-                    // play the sound
-                    AudioManager.instance.PlayHaloSound();
-                }
-            }
-        }
-
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Player")
@@ -111,21 +90,50 @@ namespace Galo
 
         }
 
-        public void LocatededBlood()
+
+        void DisplayBloodHalo()
         {
+            haloTriggered = true;
+            // turn on the particles
+            onShowHalo.Invoke();
+            // play the sound
+            AudioManager.instance.PlayHaloSound();
+        }
+
+        void DisplayPaddleHalo()
+        {
+            paddleTriggered = true;
+            ToggleHaloLights(paddlePoints, currentPaddlePoint, false);
+            // turn on the paddle halo
+            onShowPaddle.Invoke();
+            // play the sound
+            AudioManager.instance.PlayHaloSound();
+        }
+
+        /// <summary>
+        /// Called when player finds the island blood
+        /// </summary>
+        public void LocatedBlood()
+        {
+            StopCoroutine(bloodTimer);
             ToggleHaloLights(bloodPoints, currentBloodPoint, false);
         }
 
+        /// <summary>
+        /// Called when the player found the blood and returned to the heart
+        /// </summary>
         public void GotBloodToHeart()
         {
-            paddleStartTime = PuzzleTimer.instance.currentLevelTime.minutes;
-            print("Located Island Blood.......paddleStartTime: " + paddleStartTime);
+            StartCoroutine(TriggerHaloEvent(() => DisplayPaddleHalo(), paddleHaloWaitTime));
         }
 
+        /// <summary>
+        /// Called from the Paddle when it gets found
+        /// </summary>
         public void LocatedPaddle()
         {
-            // get the current minutes and set as the start time
-
+            // Turn off the lights
+            ToggleHaloLights(paddlePoints, currentPaddlePoint, false);
         }
 
         /// <summary>
@@ -159,5 +167,12 @@ namespace Galo
 
         }
 
+
+
+        IEnumerator TriggerHaloEvent(UnityAction proceedingEvent, float timeToWait)
+        {
+            yield return new WaitForSeconds(timeToWait);
+            proceedingEvent.Invoke();
+        }
     }
 }
