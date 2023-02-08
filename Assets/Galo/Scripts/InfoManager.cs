@@ -30,6 +30,12 @@ public class InfoManager : MonoBehaviour
     public string[] infoTextArray;
     int infoIndex = 0;
 
+    public void HaloPlayerWaiting()
+    {
+        isPlayerWaiting = true;
+        infoText.text = infoTextArray[0];//always start from the beginning
+        onEnter.Invoke();
+    }
 
     void OnTriggerEnter(Collider other)
     {

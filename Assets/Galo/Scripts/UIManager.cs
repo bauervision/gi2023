@@ -17,7 +17,7 @@ namespace Galo
         private void Awake() { instance = this; }
         public UnityEvent toggleMenu = new UnityEvent();
         public GameObject AllVegetation;
-        public Sprite walkSprite, runSprite, runnerTypeSprite, fighterTypeSprite, climberTypeSprite;
+        public Sprite walkSprite, runSprite, runnerTypeSprite, fighterTypeSprite, climberTypeSprite, finderTypeSprite;
         public Image playerTypeImage;
 
         // Start is called before the first frame update
