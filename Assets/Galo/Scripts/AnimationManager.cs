@@ -16,6 +16,7 @@ namespace Galo
         public Animator[] infoPlinthAnimators;
         public Animator familyAnimator;
         public Animator randomAnimator;
+        public Animator tallyPageAnimator;
         public GameObject[] families;
 
         private void Awake() { instance = this; }
@@ -141,6 +142,17 @@ namespace Galo
                 instance.randomAnimator.ResetTrigger("Change");
 
 
+        }
+
+        public void NextPageTally()
+        {
+            if (tallyPageAnimator != null)
+                tallyPageAnimator.SetTrigger("Next");
+        }
+        public void PrevPageTally()
+        {
+            if (tallyPageAnimator != null)
+                tallyPageAnimator.SetTrigger("Prev");
         }
     }
 }
