@@ -53,6 +53,7 @@ namespace Galo
         public List<GaloLevel> availableLevels;
         public Tribe tribe;
 
+
         public GaloPlayerData()
         {
             this.currentPlayer = "Caden";
@@ -60,13 +61,12 @@ namespace Galo
             this.rankString = "Noob";
             this.XP = 0;
 
-
             // handle all lists
             this.collection = new List<GaloCollectible>();
 
             // // create and add all 10 levels
             this.availableLevels = new List<GaloLevel>();
-            string[] levelNames = Enum.GetNames(typeof(GaloLevelNames));
+            GaloLevelNames[] levelNames = (GaloLevelNames[])Enum.GetValues(typeof(GaloLevelNames));
 
             for (int i = 0; i < levelNames.Length; i++)
             {
@@ -74,6 +74,8 @@ namespace Galo
                 newLevel = new GaloLevel(levelNames[i]);
                 this.availableLevels.Add(newLevel);
             }
+
+
 
         }
 

@@ -67,6 +67,7 @@ namespace Galo
         }
 #endif
 
+        #region Core Data Access
         public IEnumerator WaitForData()
         {
 
@@ -103,6 +104,7 @@ namespace Galo
             allPlayers.savedPlayers[0] = allPlayers.lastUsedPlayer = playerData;
             DataSaver.SaveFile();
         }
+
         ///<summary>We found existing save data on disc, so handle loading up the last used player account </summary>
         private void LoadSavedData()
         {
@@ -138,6 +140,9 @@ namespace Galo
             // NotificationManager.instance.DisplayNotificationAutoHide("Welcome to Galo Islands!<br>This tutorial stage will introduce you to the world<br>Have fun and thanks for playing!", false, 4f);
         }
 
+        #endregion
+
+        #region Handle Tribe Related
 
         public void LoadReturningPlayer(GaloPlayerData player)
         {
@@ -169,8 +174,9 @@ namespace Galo
             DataSaver.SaveFile();
             playerHasTribe = true;
         }
+        #endregion
 
-
+        #region Handle Level Time
         public void SetBestLevelTime(int currentLevelIndex, LevelTime currentTime)
         {
             // do we have saved a time?
@@ -236,5 +242,10 @@ namespace Galo
 
             else return false;
         }
+        #endregion
+
+
+
+
     }
 }

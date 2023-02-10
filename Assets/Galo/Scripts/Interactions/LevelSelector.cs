@@ -52,7 +52,7 @@ namespace Galo
                     // set the availability of the level button
                     LevelButtons[i].interactable = currentAvailable[i].available;
                     // set the level name of the button
-                    LevelButtons[i].transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text = FromCamelCase(currentAvailable[i].name);
+                    LevelButtons[i].transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text = FromCamelCase(currentAvailable[i].ToString());
                     // set the stars, by grabbing the "stars" gameobject
                     GameObject starsObj = LevelButtons[i].transform.GetChild(1).transform.GetChild(1).gameObject;
                     // now run through each of its children, the stars, and set their state

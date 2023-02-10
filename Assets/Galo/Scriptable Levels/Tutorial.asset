@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   galoLevel:
+    levelName: 0
     available: 0
     highScore: 0
     levelTime:
@@ -21,4 +22,13 @@ MonoBehaviour:
     hasCompleted: 0
     foundCrystal1: 0
     foundCrystal2: 0
-    name: 
+    levelPersistentData:
+      tutorialLevel:
+        shownInitialFindBlood: 0
+        shownInitialZipline: 0
+      isleOfNoobLevel:
+        shownInitialFindBlood: 0
+        shownInitialZipline: 0
+      mountEgoLevel:
+        shownInitialFindBlood: 0
+        shownInitialZipline: 0
