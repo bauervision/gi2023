@@ -21,6 +21,7 @@ namespace Galo
 
         public Button[] LevelButtons;
         public string[] scenePaths;
+        public AssetReference tutorialScene;
 
         public GameObject Row4;
 
@@ -30,30 +31,29 @@ namespace Galo
         public int CurrentLevelIndex;
         public Slider progressBar;
 
-        AsyncOperationHandle asyncSceneLoad;
+        AsyncOperationHandle asyncLevelDependencies;
+        AsyncOperationHandle asyncLevelLoader;
 
 
         // Start is called before the first frame update
         void Start()
         {
             SetAvailableLevels();
-
         }
 
-        private void OnEnable()
-        {
-            // asyncSceneLoad = Addressables.DownloadDependenciesAsync(remoteScene);
-            // asyncSceneLoad.Completed += SceneLoadComplete;
-        }
+
         private void Update()
         {
-            progressBar.value = asyncSceneLoad.PercentComplete;
+            if (progressBar.transform.gameObject.activeInHierarchy)
+                progressBar.value = asyncLevelDependencies.PercentComplete;
         }
 
 
-        public void LoadLevel(int levelIndex)
+        public void LoadTutorialLevel()
         {
-            asyncSceneLoad = Addressables.LoadSceneAsync(scenePaths[levelIndex], LoadSceneMode.Single);
+            asyncLevelDependencies = Addressables.DownloadDependenciesAsync(tutorialScene);
+            asyncLevelDependencies.Completed += DependenciesComplete;
+
 
         }
 
@@ -119,18 +119,16 @@ namespace Galo
             return returnValue;
         }
 
-        public void AddLevelLoadingScreen()
-        {
-            SceneManager.LoadScene("LevelLoading", LoadSceneMode.Additive);
-        }
+
+        public void LoadScene(string levelName) { SceneManager.LoadScene(levelName, LoadSceneMode.Single); }
 
 
 
-        private void SceneLoadComplete(AsyncOperationHandle obj)
+        private void DependenciesComplete(AsyncOperationHandle obj)
         {
             if (obj.Status == AsyncOperationStatus.Succeeded)
             {
-                //onSceneDone.Invoke();
+                Addressables.LoadSceneAsync(tutorialScene, LoadSceneMode.Single);
             }
             else
                 Debug.LogError("Loading Scene Failed");

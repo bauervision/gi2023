@@ -6,13 +6,13 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events;
-
+using TMPro;
 
 namespace Galo
 {
     public class AddressableManager : MonoBehaviour
     {
-        public static AddressableManager instance;
+
         public AssetReference remoteScene;
 
         public Slider progressBar;
@@ -24,95 +24,54 @@ namespace Galo
         public UnityEvent onSceneDone = new UnityEvent();
 
 
-        AsyncOperationHandle asyncSceneLoad;
+        AsyncOperationHandle downloadDependencies;
 
-        void Start()
-        {
-            //StartCoroutine(LoadRemoteAssets());
-        }
-
-
-
+        bool startedDownload;
         private void OnEnable()
         {
-            asyncSceneLoad = Addressables.DownloadDependenciesAsync(remoteScene);
-            asyncSceneLoad.Completed += SceneLoadComplete;
+            onStartAssetsLoading.Invoke();
+            downloadDependencies = Addressables.DownloadDependenciesAsync("CloudAsset");
+            downloadDependencies.Completed += DownloadDependenciesCompleted;
+
         }
 
         private void Update()
         {
-            progressBar.value = asyncSceneLoad.PercentComplete;
-        }
-
-        IEnumerator LoadRemoteAssets()
-        {
-            onStartAssetsLoading.Invoke();
-            yield return null;
-            //Begin to load the Scene you specify
-            AsyncOperationHandle asyncAssetLoad = Addressables.LoadResourceLocationsAsync("CloudAsset");
-
-            //When the load is still in progress, output the Text and progress bar
-            while (!asyncAssetLoad.IsDone)
-            {
-                //Output the current progress
-                progressBar.value = asyncAssetLoad.PercentComplete;
-                yield return null;
-            }
-
-            // Check if the load has finished
-            if (asyncAssetLoad.IsDone)
-            {
-                asyncAssetLoad.Completed += AssetsLoadComplete;
-            }
-
-        }
-
-        IEnumerator LoadScene()
-        {
-            onStartSceneLoading.Invoke();
-            yield return null;
-
-            //Begin to load the Scene you specify
-            AsyncOperationHandle asyncSceneLoad = Addressables.LoadSceneAsync(remoteScene, LoadSceneMode.Single);
-
-            //When the load is still in progress, output the Text and progress bar
-            while (!asyncSceneLoad.IsDone)
-            {
-                //Output the current progress
-
-                yield return null;
-            }
-
-            if (asyncSceneLoad.IsDone)
-            {
-                asyncSceneLoad.Completed += SceneLoadComplete;
-            }
+            progressBar.value = downloadDependencies.PercentComplete;
         }
 
 
-
-        private void AssetsLoadComplete(AsyncOperationHandle obj)
+        private void DownloadDependenciesCompleted(AsyncOperationHandle obj)
         {
             if (obj.Status == AsyncOperationStatus.Succeeded)
             {
                 onAssetsDone.Invoke();
-                //fire off the next remote update
-                //StartCoroutine(LoadScene());
-            }
-            else
-                Debug.LogError("Loading Assets Failed");
-
-        }
-
-        private void SceneLoadComplete(AsyncOperationHandle obj)
-        {
-            if (obj.Status == AsyncOperationStatus.Succeeded)
-            {
-                onSceneDone.Invoke();
             }
             else
                 Debug.LogError("Loading Scene Failed");
+        }
+
+        public IEnumerator DownloadDependencies()
+        {
+            string key = "CloudAsset";
+            // Clear all cached AssetBundles
+            // WARNING: This will cause all asset bundles to be re-downloaded at startup every time and should not be used in a production game
+            // Addressables.ClearDependencyCacheAsync(key);
+
+            //Check the download size
+            AsyncOperationHandle<long> getDownloadSize = Addressables.GetDownloadSizeAsync(key);
+            yield return getDownloadSize;
+
+            GameObject.Find("Loading Text").GetComponent<TextMeshProUGUI>().text = $"Downloading Asset dependencies...{getDownloadSize}";
+            //If the download size is greater than 0, download all the dependencies.
+            if (getDownloadSize.Result > 0)
+            {
+                downloadDependencies = Addressables.DownloadDependenciesAsync(key);
+                yield return downloadDependencies;
+            }
+
 
         }
+
     }
 }

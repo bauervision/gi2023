@@ -347,11 +347,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Scenes
-  - m_GUID: c5198c8cf17de794fa6247859256f9d9
-    m_Address: Assets/Galo/Scenes/Tutorial.unity
+  - m_GUID: 253e0138ab9ea684cbf525f37923b595
+    m_Address: Assets/Galo/Audio/Gaia Ambient Audio Day.mp3
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Scenes
+    - CloudAsset
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a52bc5feecfc79940b293bef376e339a, type: 2}
   m_SchemaSet:

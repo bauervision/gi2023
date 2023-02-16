@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Galo/Scenes/LevelLoading.unity
     guid: 7158301cde9332d4cb0ce4132bf97ba0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Galo/Scenes/Tutorial.unity
     guid: c5198c8cf17de794fa6247859256f9d9
   m_configObjects:

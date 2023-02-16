@@ -59,14 +59,21 @@ namespace Galo
         }
 
 
-        public void LoadLevelSelect() { SceneManager.LoadScene("LevelSelect"); }
+        public void LoadLevelSelect()
+        {
+            SceneManager.LoadScene("LevelSelect");
+        }
 
+        /// <summary>
+        /// When we want to load into addressable levels, 
+        /// </summary>
+        /// <param name="level"></param>
         public void PlayLevel(string level)
         {
             if (DataManager.instance)
                 DataManager.instance.CurrentLevelToLoad = level;
 
-            SceneManager.LoadScene(level);
+            Addressables.LoadSceneAsync(level);
         }
 
 
