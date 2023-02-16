@@ -53,13 +53,13 @@ public class PlayerData
 
         // create and add all 10 levels
         this.availableLevels = new List<Level>();
-        for (int i = 0; i < LevelLoader.instance.levelNames.Length; i++)
-        {
-            Level newLevel;
-            newLevel = new Level(LevelLoader.instance.levelNames[i]);
+        // for (int i = 0; i < LevelLoader.instance.levelNames.Length; i++)
+        // {
+        //     Level newLevel;
+        //     newLevel = new Level(LevelLoader.instance.levelNames[i]);
 
-            this.availableLevels.Add(newLevel);
-        }
+        //     this.availableLevels.Add(newLevel);
+        // }
 
     }
 

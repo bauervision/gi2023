@@ -13,19 +13,36 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: 5dd9c83591742d3458ea170e9a566388
+  m_CachedHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
+  m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
+  m_IgnoreUnsupportedFilesInBuild: 0
   m_UniqueBundleIds: 0
+  m_NonRecursiveBuilding: 1
+  m_CCDEnabled: 0
+  m_maxConcurrentWebRequests: 500
+  m_ContiguousBundles: 1
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: f6547ecc33400ce4c82dffef62bde3ca
   m_RemoteCatalogLoadPath:
     m_Id: 32dea8032f22cc74399b97ab7bdf114a
+  m_ContentStateBuildPath: 
+  m_BuildAddressablesWithPlayerBuild: 2
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: 68ee71e140b10ee428599ef302ec6b61, type: 2}
   - {fileID: 11400000, guid: 766445c72624d844aa09eebd610d4194, type: 2}
-  - {fileID: 11400000, guid: 4b146f427cbea6048afc736a6995b0d3, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -49,7 +66,7 @@ MonoBehaviour:
         m_Value: http://localhost/[BuildTarget]
     - m_InheritedParent: 
       m_Id: ee2f2fe83902e5c49b146120f94b681d
-      m_ProfileName: Firebase
+      m_ProfileName: GoogleCloud
       m_Values:
       - m_Id: 23cfa6420aa65c24f9dcdce2ff01349a
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
@@ -60,7 +77,21 @@ MonoBehaviour:
       - m_Id: f6547ecc33400ce4c82dffef62bde3ca
         m_Value: ServerData/[BuildTarget]
       - m_Id: 32dea8032f22cc74399b97ab7bdf114a
-        m_Value: https://storage.googleapis.com/scavengers/ServerData/[BuildTarget]
+        m_Value: https://storage.googleapis.com/not_idle_game_dev/GaloIslands//[BuildTarget]
+    - m_InheritedParent: 
+      m_Id: 5f7c7761a79745942917a95cd523799a
+      m_ProfileName: Unity CCD
+      m_Values:
+      - m_Id: 23cfa6420aa65c24f9dcdce2ff01349a
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 2f4818086cd889f4d98dad4d19381422
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 8dcb113bd6c51bb4da2bf05c6ab82184
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: f6547ecc33400ce4c82dffef62bde3ca
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 32dea8032f22cc74399b97ab7bdf114a
+        m_Value: https://2616946c-faed-44bb-9b51-a87e72d59ede.client-api.unity3dusercontent.com/client_api/v1/environments/production/buckets/bcdcc436-7ec1-49e8-b338-bb7ca67b3ec8/release_by_badge/latest/entry_by_path/content/?path=
     m_ProfileEntryNames:
     - m_Id: 23cfa6420aa65c24f9dcdce2ff01349a
       m_Name: BuildTarget
@@ -84,6 +115,9 @@ MonoBehaviour:
     - Scenes
     - Audio
     - Textures
+    - Characters
+    - FBX
+    - CloudAsset
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 116b370acd231e04e97281c778a0e76a, type: 2}
@@ -97,7 +131,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bca8b68e97e03464b967ca377431606f, type: 2}
   - {fileID: 11400000, guid: cb589a30d3c325e4fbdc2eb6286f6980, type: 2}
   - {fileID: 11400000, guid: ec6cfd7bab4530847ae2f2988f98faf7, type: 2}
-  m_ActiveProfileId: ee2f2fe83902e5c49b146120f94b681d
+  m_ActiveProfileId: 5f7c7761a79745942917a95cd523799a
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}

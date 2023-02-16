@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "749205457241",
+    "firebase_url": "https://gamedev-4fe55.firebaseio.com",
+    "project_id": "gamedev-4fe55",
+    "storage_bucket": "gamedev-4fe55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749205457241:android:30bd45962afdeede196448",
+        "android_client_info": {
+          "package_name": "com.bauervision.galoislands"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749205457241-68t0k2csg1idi5nvm4ufq3j11llgevcu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEcDre6mph6ER7zkzJgvDpsmNqR7grvSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749205457241-68t0k2csg1idi5nvm4ufq3j11llgevcu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

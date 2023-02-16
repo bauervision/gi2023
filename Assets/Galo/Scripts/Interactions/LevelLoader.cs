@@ -31,45 +31,42 @@ namespace Galo
             updateButton = GameObject.Find("UpdateButton");
 
             // player has a tribe? show continue and update buttons
-            if (DataManager.instance.playerHasTribe)
+            if (DataManager.instance)
             {
-                if (continueButton != null)
-                    continueButton.SetActive(true);
+                if (DataManager.instance.playerHasTribe)
+                {
+                    if (continueButton != null)
+                        continueButton.SetActive(true);
 
-                if (welcomeButton != null)
-                    welcomeButton.SetActive(false);
+                    if (welcomeButton != null)
+                        welcomeButton.SetActive(false);
 
-                if (updateButton != null)
-                    updateButton.SetActive(true);
-            }
-            else // player doesnt yet have a tribe
-            {
-                if (continueButton != null)
-                    continueButton.SetActive(false);
+                    if (updateButton != null)
+                        updateButton.SetActive(true);
+                }
+                else // player doesnt yet have a tribe
+                {
+                    if (continueButton != null)
+                        continueButton.SetActive(false);
 
-                if (welcomeButton != null)
-                    welcomeButton.SetActive(true);
+                    if (welcomeButton != null)
+                        welcomeButton.SetActive(true);
 
-                if (updateButton != null)
-                    updateButton.SetActive(false);
-            }
-        }
-
-
-        private void SceneLoadComplete(AsyncOperationHandle<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance> obj)
-        {
-            if (obj.Status == AsyncOperationStatus.Succeeded)
-            {
-
+                    if (updateButton != null)
+                        updateButton.SetActive(false);
+                }
             }
         }
 
-        public void LoadLevelSelect() { SceneManager.LoadScene(1); }
+
+        public void LoadLevelSelect() { SceneManager.LoadScene("LevelSelect"); }
 
         public void PlayLevel(string level)
         {
-            DataManager.instance.CurrentLevelToLoad = level;
-            SceneManager.LoadScene(2);
+            if (DataManager.instance)
+                DataManager.instance.CurrentLevelToLoad = level;
+
+            SceneManager.LoadScene(level);
         }
 
 

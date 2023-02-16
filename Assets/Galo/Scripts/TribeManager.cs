@@ -22,7 +22,7 @@ namespace Galo
         public GameObject[] creyGirlCharacters;
         public GameObject[] mingBoyCharacters;
         public GameObject[] mingGirlCharacters;
-        public GameObject currentTribeGrid;
+        public GameObject currentTribeGrid, landingPageTribeGrid;
 
 
         public Image[] randomTribeImages;
@@ -49,7 +49,10 @@ namespace Galo
         {
             InitializeAllCharacters();
 
+            if (DataManager.instance)
+                landingPageTribeGrid.SetActive(DataManager.instance.currentTribe.Length > 0);
 
+            RandomizeTribe();
         }
 
         void InitializeAllCharacters()

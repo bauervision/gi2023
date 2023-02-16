@@ -809,7 +809,7 @@ public class InteractionManager : MonoBehaviour
 
         // update next level name
         int currentLevelIndex = (int)thisLevel;
-        nextLevelName.text = LevelLoader.instance.levelNames[currentLevelIndex + 1];
+        nextLevelName.text = currentLevelIndex.ToString();
         // finally set the total score
         finalScoreText.text = "Total: " + levelTotalPoints.ToString();
 

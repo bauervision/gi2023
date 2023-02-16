@@ -146,7 +146,7 @@ namespace Galo
 
         public void LoadReturningPlayer(GaloPlayerData player)
         {
-            playerHasTribe = (player.tribe.playables != null || player.tribe.playables.Length >= 0);
+            playerHasTribe = (player.tribe.playables != null && player.tribe.playables.Length > 0);
             playerData = allPlayers.lastUsedPlayer = player;
 
             // since we have a tribe already saved, let's set them
