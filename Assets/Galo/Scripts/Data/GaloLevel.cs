@@ -35,7 +35,7 @@ namespace Galo
         // have we found the 2 bonus crystals?
         public bool foundCrystal1;
         public bool foundCrystal2;
-        public LevelPersistentData levelPersistentData;
+
 
 
 

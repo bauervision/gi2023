@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace Galo
 {
     public enum CollectibleType { Jar, Horse, Bear, Ornament, Barrel, Bellows, Pulley, SoccerBall, LifePreserver, BarrelContainer };
 
-    public class Collectible : MonoBehaviour
+    public class Collectible : MonoBehaviour, IPointerDownHandler
     {
         AudioSource _audioSource;
         public AudioClip _audioClip;
@@ -42,9 +43,9 @@ namespace Galo
             // locate required items
             _audioSource = GetComponent<AudioSource>();
 
-            hiddenFromStart = !alreadyFoundThis();
-            this.gameObject.SetActive(hiddenFromStart);
-            HandleCollectibles();
+            //hiddenFromStart = alreadyFoundThis();
+            //this.gameObject.SetActive(hiddenFromStart);
+            //HandleCollectibles();
         }
 
         IEnumerator ValidateDataManager()
@@ -55,9 +56,32 @@ namespace Galo
 
         }
 
-        bool alreadyFoundThis() { return DataManager.instance.playerData.collection.FindIndex(i => i.name == _collectibleData.name) != -1; }
+        bool alreadyFoundThis()
+        {
+            if (DataManager.instance)
+                return DataManager.instance.playerData.collection.FindIndex(i => string.Equals(i.name, _collectibleData.name)) != -1;
 
-        private void OnMouseDown() { Clicked.Invoke(); }
+            return false;
+        }
+
+        private void OnMouseDown()
+        {
+            Clicked.Invoke();
+        }
+
+        void IPointerDownHandler.OnPointerDown(PointerEventData pointerEventData)
+        {
+            HandleClickEvent();
+        }
+
+        public void HandleClickEvent()
+        {
+            _audioSource.PlayOneShot(_audioClip);
+            EnableThisObject(false);
+            ExpManager.UpdateCollectible(_collectibleData);
+            onCollect.Invoke();
+            HandleRemoval();
+        }
 
         private void HandleCollectibles()
         {
@@ -67,7 +91,7 @@ namespace Galo
             {
                 // if this is a collectible, determine when to unhide it based on the players ranking
                 bool showCollectible = false;
-                int playerRanking = (int)DataManager.instance.playerData.rank;
+                int playerRanking = DataManager.instance ? (int)DataManager.instance.playerData.rank : 0;
 
 
                 switch (myCollectible)
@@ -109,14 +133,14 @@ namespace Galo
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.tag == "Player")
-            {
-                _audioSource.PlayOneShot(_audioClip);
-                EnableThisObject(false);
-                ExpManager.UpdateCollectible(_collectibleData);
-                onCollect.Invoke();
-                HandleRemoval();
-            }
+            // if (other.gameObject.tag == "Player")
+            // {
+            //     _audioSource.PlayOneShot(_audioClip);
+            //     EnableThisObject(false);
+            //     ExpManager.UpdateCollectible(_collectibleData);
+            //     onCollect.Invoke();
+            //     HandleRemoval();
+            // }
         }
 
 

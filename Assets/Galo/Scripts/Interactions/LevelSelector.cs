@@ -10,6 +10,8 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEditor;
+using TMPro;
+
 
 namespace Galo
 {
@@ -30,9 +32,11 @@ namespace Galo
 
         public int CurrentLevelIndex;
         public Slider progressBar;
+        public TextMeshProUGUI downloadedBytesText;
+        public TextMeshProUGUI totalBytesText;
 
-        AsyncOperationHandle asyncLevelDependencies;
-        AsyncOperationHandle asyncLevelLoader;
+
+        AsyncOperationHandle m_SceneHandle;
 
 
         // Start is called before the first frame update
@@ -42,19 +46,45 @@ namespace Galo
         }
 
 
+
+        private void OnDisable()
+        {
+            m_SceneHandle.Completed -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(AsyncOperationHandle obj)
+        {
+            // We show the UI button once the scene is successfully downloaded      
+            if (obj.Status == AsyncOperationStatus.Succeeded)
+            {
+                Addressables.LoadSceneAsync(tutorialScene, LoadSceneMode.Single);
+            }
+            else if (obj.Status == AsyncOperationStatus.Failed)
+            {
+                downloadedBytesText.text = obj.Status.ToString();
+                totalBytesText.text = obj.OperationException.Message;
+            }
+
+        }
+
         private void Update()
         {
             if (progressBar.transform.gameObject.activeInHierarchy)
-                progressBar.value = asyncLevelDependencies.PercentComplete;
+            {
+                if (m_SceneHandle.IsValid())
+                {
+                    progressBar.value = m_SceneHandle.GetDownloadStatus().Percent;
+                    downloadedBytesText.text = m_SceneHandle.GetDownloadStatus().DownloadedBytes.ToString();
+                    totalBytesText.text = m_SceneHandle.GetDownloadStatus().TotalBytes.ToString() + " bytes";
+                }
+            }
         }
 
 
-        public void LoadTutorialLevel()
+        public void BeginTutorialDownload()
         {
-            asyncLevelDependencies = Addressables.DownloadDependenciesAsync(tutorialScene);
-            asyncLevelDependencies.Completed += DependenciesComplete;
-
-
+            m_SceneHandle = Addressables.DownloadDependenciesAsync(tutorialScene);
+            m_SceneHandle.Completed += OnSceneLoaded;
         }
 
 

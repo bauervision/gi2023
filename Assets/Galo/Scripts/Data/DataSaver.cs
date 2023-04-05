@@ -46,11 +46,11 @@ namespace Galo
 
 
             BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(file, DataManager.instance.allPlayers);
+            bf.Serialize(file, DataManager.instance.playerData);
             file.Close();
         }
 
-        public static AllGaloPlayers LoadFile()
+        public static GaloPlayerData LoadFile()
         {
             string destination = Application.persistentDataPath + "/galoislandsgame.dat";
             FileStream file;
@@ -63,7 +63,7 @@ namespace Galo
             }
 
             BinaryFormatter bf = new BinaryFormatter();
-            AllGaloPlayers data = (AllGaloPlayers)bf.Deserialize(file);
+            GaloPlayerData data = (GaloPlayerData)bf.Deserialize(file);
             file.Close();
             return data;
         }

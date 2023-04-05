@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7189698940125078246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7189698940125078242}
+  - component: {fileID: 7189698940125078243}
+  - component: {fileID: 7189698940125078244}
+  - component: {fileID: 7189698940125078245}
+  m_Layer: 0
+  m_Name: Network
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7189698940125078242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189698940125078246}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7189698940125078243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189698940125078246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1367f117f55610d44933461d7efa19ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverPort: 3310
+  udpSocketState: 0
+  serverIP: 
+  noNetwork: 0
+  localNetworkIP: 
+  udpServerState: 0
+  serverRunning: 0
+--- !u!114 &7189698940125078244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189698940125078246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053c5e9bb40007a459af2541db457cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  local_player_id: 
+  cubePrefabs:
+  - {fileID: 6744258967083979399, guid: 9dc74cc31bd34e24da8181d2e66667a2, type: 3}
+  - {fileID: 3159455572695113320, guid: bb2fb3bbf06479e42874c5b932cb6406, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  myPlayer: {fileID: 0}
+  serverPort: 3310
+  serverFound: 0
+  serverAlreadyStarted: 0
+--- !u!114 &7189698940125078245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189698940125078246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a2d9f865bb5ee4a901f567f9512cfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pack: []
+  onlinePlayers: 0
+  maxTimeOut: 0
+  cont: 0

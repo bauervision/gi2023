@@ -11,6 +11,7 @@ namespace Galo
         public GameObject notificationPanel;
         public TextMeshProUGUI notificationText;
         public GameObject[] UICollectibles;
+        public GameObject performanceBonusImage;
 
 
         void Awake() { instance = this; }
@@ -73,6 +74,9 @@ namespace Galo
             yield return new WaitForSeconds(2.5f);
             AnimationManager.instance.NotificationsOff(playSound);
 
+            performanceBonusImage.SetActive(false);
+
+
         }
 
         public IEnumerator WaitAndThenHide(bool playSound, float seconds)
@@ -80,6 +84,7 @@ namespace Galo
             yield return new WaitForSeconds(seconds);
             AnimationManager.instance.NotificationsOff(playSound);
 
+            performanceBonusImage.SetActive(false);
         }
 
         public IEnumerator WaitAndThenHide(float seconds)
@@ -87,6 +92,7 @@ namespace Galo
             yield return new WaitForSeconds(seconds);
             AnimationManager.instance.NotificationsOff(true);
 
+            performanceBonusImage.SetActive(false);
         }
     }
 }

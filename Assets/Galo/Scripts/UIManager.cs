@@ -20,6 +20,8 @@ namespace Galo
         public Sprite walkSprite, runSprite, runnerTypeSprite, fighterTypeSprite, climberTypeSprite, finderTypeSprite;
         public Image playerTypeImage;
 
+        public GameObject trackPad, movementPad;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -124,5 +126,11 @@ namespace Galo
 
         public void SetCurrentCharacterName(string name) { menus.characterName.text = name; }
         public void SetCurrentCharacterAbility(string name) { menus.ability.text = name; }
+
+        public void ToggleSearchTouch()
+        {
+            trackPad.SetActive(!trackPad.activeInHierarchy);
+            movementPad.SetActive(!movementPad.activeInHierarchy);
+        }
     }
 }

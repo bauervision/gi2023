@@ -34,6 +34,7 @@ namespace Galo
 
         GameObject _tempMesh;
 
+        public GameObject[] playTestingCharacters;
 
 
         private void Awake()
@@ -49,22 +50,37 @@ namespace Galo
         {
             // let's grab our starting tribe and add them as playable characters
             List<GameObject> myTribe = new List<GameObject>();
-            // only grab the first 3 for now
-            for (int i = 0; i < 3; i++)
-                myTribe.Add(Instantiate(DataManager.instance.currentTribe[i], _playerModelParent.transform));
 
-            // now set them
-            _Primary = _activePlayerModel = _playerModelParent.transform.GetChild(0).gameObject;
-            InitializeRunner(_Primary.GetComponent<CharacterData>());
-            currentCharacterData = _Primary.GetComponent<CharacterData>();
+            if (DataManager.instance)
+            {
+                // only grab the first 3 for now
+                for (int i = 0; i < 3; i++)
+                    myTribe.Add(Instantiate(DataManager.instance.currentTribe[i], _playerModelParent.transform));
+            }
+            else// play testing a level
+            {
+                // let's add 3 default characters to our controller, Camilu
+                for (int i = 0; i < 3; i++)
+                    myTribe.Add(Instantiate(playTestingCharacters[i], _playerModelParent.transform));
 
-            _Secondary = _playerModelParent.transform.GetChild(1).gameObject;
-            InitializeFighter(_Secondary.GetComponent<CharacterData>());
-            _Secondary.SetActive(false);
+            }
 
-            _Tertiary = _playerModelParent.transform.GetChild(2).gameObject;
-            InitializeClimber(_Tertiary.GetComponent<CharacterData>());
-            _Tertiary.SetActive(false);
+            if (_playerModelParent.transform.childCount > 0)
+            {
+                // now set them
+                _Primary = _activePlayerModel = _playerModelParent.transform.GetChild(0).gameObject;
+                InitializeRunner(_Primary.GetComponent<CharacterData>());
+                currentCharacterData = _Primary.GetComponent<CharacterData>();
+
+
+                _Secondary = _playerModelParent.transform.GetChild(1).gameObject;
+                InitializeFighter(_Secondary.GetComponent<CharacterData>());
+                _Secondary.SetActive(false);
+
+                _Tertiary = _playerModelParent.transform.GetChild(2).gameObject;
+                InitializeClimber(_Tertiary.GetComponent<CharacterData>());
+                _Tertiary.SetActive(false);
+            }
 
             poof.SetActive(false);
             flash.SetActive(false);
@@ -139,7 +155,8 @@ namespace Galo
                 UIManager.instance.ChangePlayerTypeSprite(myCurrentPlayerType);
 
             // first hide the special attack button unless this is Caden
-            specialAttackButton.SetActive(currentCharacterData.playerType == PlayerType.RUNNER);
+            if (specialAttackButton)
+                specialAttackButton.SetActive(currentCharacterData.playerType == PlayerType.RUNNER);
 
             currentPlayerName = currentCharacterData.myName;
             if (UIManager.instance)

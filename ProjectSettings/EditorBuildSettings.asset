@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Galo/Scenes/UpdateAssets.unity
-    guid: 347ae14f6b24fdd4fb86542099ccfa59
-  - enabled: 1
     path: Assets/Galo/Scenes/StartMenu.unity
     guid: 2e853c2a69429054da472167f45de90f
   - enabled: 1
@@ -17,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Galo/Scenes/LevelLoading.unity
     guid: 7158301cde9332d4cb0ce4132bf97ba0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Galo/Scenes/Tutorial.unity
     guid: c5198c8cf17de794fa6247859256f9d9
   m_configObjects:

@@ -172,9 +172,6 @@ namespace Galo
         private void Update()
         {
 
-
-
-
             MonitorRanking();
 
             // make sure we have playerData first
@@ -260,6 +257,7 @@ namespace Galo
                 }
 
             UIManager.instance.UpdateProfilePage();
+            DataSaver.SaveFile();
         }
         private void MonitorRanking()
         {

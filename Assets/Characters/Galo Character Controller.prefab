@@ -69947,7 +69947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f672585e602dbfb4cbfdff3aa0ddaffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openCloseEvents: 1
+  openCloseEvents: 0
   openCloseWindow: 1
   selectedToolbar: 0
   OnDoAction:
@@ -69976,7 +69976,7 @@ MonoBehaviour:
     lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   exitZipline:
-    useInput: 1
+    useInput: 0
     isAxisInUse: 0
     isUnityInput: 0
     keyboard: Space
@@ -69994,19 +69994,7 @@ MonoBehaviour:
   isUsingZipline: 0
   onZiplineEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onZiplineUsing:
     m_PersistentCalls:
       m_Calls: []
@@ -70057,6 +70045,10 @@ MonoBehaviour:
   specialAttackButton: {fileID: 0}
   controllerAnimator: {fileID: 6731948665232051317}
   _playerModelParent: {fileID: 6731948666212765631}
+  playTestingCharacters:
+  - {fileID: 6383096256028005108, guid: a871a2b8276c0594fb1398577d48e289, type: 3}
+  - {fileID: 5781122115427643690, guid: 2be4726a5f4093a47bb328d54e69d150, type: 3}
+  - {fileID: 7950990266647414292, guid: a4835358435638542880957b54fe5c02, type: 3}
 --- !u!82 &6161847585164179565
 AudioSource:
   m_ObjectHideFlags: 0

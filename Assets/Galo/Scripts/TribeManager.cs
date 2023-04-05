@@ -247,14 +247,17 @@ namespace Galo
             List<Sprite> savedTribeSprites = new List<Sprite>();
 
 
-            for (int i = 0; i < names.Length; i++)
+            for (int i = 0; i <= 5; i++)
             {
                 GameObject found = allCharacters.ToList().Find(c => c.name == names[i]);
                 savedTribe.Add(found);
                 // update the sprites as well
                 Sprite foundSprite = allCharacterSprites.ToList().Find(c => c.name == names[i]);
-                savedTribeImages[i].sprite = foundSprite;
-                currentTribeImages[i].sprite = foundSprite;
+                if (foundSprite)
+                {
+                    savedTribeImages[i].sprite = foundSprite;
+                    currentTribeImages[i].sprite = foundSprite;
+                }
             }
             // send back actual characters to data manager
             return savedTribe.ToArray();

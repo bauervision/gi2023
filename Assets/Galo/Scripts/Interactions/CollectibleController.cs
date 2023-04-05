@@ -21,7 +21,18 @@ namespace Galo
             }
         }
 
-        bool HasPlayerFoundMe() { return this.transform.GetChild(0).GetComponent<Collectible>().hiddenFromStart; }
+        /// <summary>
+        /// Check the children to see if they are Collectibles, and if they are not, then we just want to randomly hide the kids
+        /// </summary>
+        /// <returns></returns>
+        bool HasPlayerFoundMe()
+        {
+            // if the first kid is a collectible, than they all are 
+            if (this.transform.GetChild(0).GetComponent<Collectible>())
+                return this.transform.GetChild(0).GetComponent<Collectible>().hiddenFromStart;
+            // ot
+            return false;
+        }
 
 
     }

@@ -31,7 +31,7 @@ MonoBehaviour:
   m_DisableVisibleSubAssetRepresentations: 0
   m_ShaderBundleNaming: 0
   m_ShaderBundleCustomNaming: 
-  m_MonoScriptBundleNaming: 0
+  m_MonoScriptBundleNaming: 2
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: f6547ecc33400ce4c82dffef62bde3ca
@@ -43,6 +43,8 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: 68ee71e140b10ee428599ef302ec6b61, type: 2}
   - {fileID: 11400000, guid: 766445c72624d844aa09eebd610d4194, type: 2}
+  - {fileID: 11400000, guid: 62ff93c2f21f43048b6bb6a0b77562c0, type: 2}
+  - {fileID: 11400000, guid: b953a0c48bd360e4eb50864b9d1c22d1, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -64,20 +66,6 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: 32dea8032f22cc74399b97ab7bdf114a
         m_Value: http://localhost/[BuildTarget]
-    - m_InheritedParent: 
-      m_Id: ee2f2fe83902e5c49b146120f94b681d
-      m_ProfileName: GoogleCloud
-      m_Values:
-      - m_Id: 23cfa6420aa65c24f9dcdce2ff01349a
-        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
-      - m_Id: 2f4818086cd889f4d98dad4d19381422
-        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
-      - m_Id: 8dcb113bd6c51bb4da2bf05c6ab82184
-        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
-      - m_Id: f6547ecc33400ce4c82dffef62bde3ca
-        m_Value: ServerData/[BuildTarget]
-      - m_Id: 32dea8032f22cc74399b97ab7bdf114a
-        m_Value: https://storage.googleapis.com/not_idle_game_dev/GaloIslands//[BuildTarget]
     - m_InheritedParent: 
       m_Id: 5f7c7761a79745942917a95cd523799a
       m_ProfileName: Unity CCD

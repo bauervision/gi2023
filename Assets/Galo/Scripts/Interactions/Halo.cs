@@ -32,6 +32,8 @@ namespace Galo
 
         Coroutine bloodTimer;
 
+        bool foundBlood, foundPaddle;
+
         private void Start()
         {
             bloodPoints = GameObject.FindGameObjectsWithTag("HaloPoint");
@@ -41,7 +43,7 @@ namespace Galo
             InitHaloObjects(paddlePoints, out currentPaddlePoint);
 
             // fire off the first timer that waits to see if player has a hard time finding the blood
-            bloodTimer = StartCoroutine(TriggerHaloEvent(() => DisplayBloodHalo(), bloodHaloWaitTime));
+            bloodTimer = StartCoroutine(TriggerHaloEvent(() => DisplayBloodHalo(), bloodHaloWaitTime, foundBlood));
 
         }
 
@@ -126,6 +128,7 @@ namespace Galo
         /// </summary>
         public void LocatedBlood()
         {
+            foundBlood = true;
             StopCoroutine(bloodTimer);
             ToggleHaloLights(bloodPoints, currentBloodPoint, false);
         }
@@ -135,7 +138,7 @@ namespace Galo
         /// </summary>
         public void GotBloodToHeart()
         {
-            StartCoroutine(TriggerHaloEvent(() => DisplayPaddleHalo(), paddleHaloWaitTime));
+            StartCoroutine(TriggerHaloEvent(() => DisplayPaddleHalo(), paddleHaloWaitTime, foundPaddle));
         }
 
         /// <summary>
@@ -143,6 +146,7 @@ namespace Galo
         /// </summary>
         public void LocatedPaddle()
         {
+            foundPaddle = true;
             // Turn off the lights
             ToggleHaloLights(paddlePoints, currentPaddlePoint, false);
         }
@@ -220,10 +224,12 @@ namespace Galo
         }
 
 
-        IEnumerator TriggerHaloEvent(UnityAction proceedingEvent, float timeToWait)
+        IEnumerator TriggerHaloEvent(UnityAction proceedingEvent, float timeToWait, bool monitoringBool)
         {
             yield return new WaitForSeconds(timeToWait);
-            proceedingEvent.Invoke();
+            // only fire off if the player still hasnt found the requirement
+            if (!monitoringBool)
+                proceedingEvent.Invoke();
         }
 
         int flareFadeTime = 120;

@@ -30,9 +30,8 @@ namespace Galo
         private void OnEnable()
         {
             onStartAssetsLoading.Invoke();
-            downloadDependencies = Addressables.DownloadDependenciesAsync("CloudAsset");
+            downloadDependencies = Addressables.DownloadDependenciesAsync(remoteScene);
             downloadDependencies.Completed += DownloadDependenciesCompleted;
-
         }
 
         private void Update()

@@ -16,11 +16,19 @@ namespace Galo
         #region Tutorial Level
         public void Tutorial_BloodPause()
         {
-            currentLevel.galoLevel.levelPersistentData.tutorialLevel.shownInitialFindBlood = true;
+            if (DataManager.instance)
+            {
+                DataManager.instance.playerData.levelPersistentData.tutorialLevel.shownInitialFindBlood = true;
+                DataSaver.SaveFile();
+            }
         }
         public void Tutorial_Zipline()
         {
-            currentLevel.galoLevel.levelPersistentData.tutorialLevel.shownInitialZipline = true;
+            if (DataManager.instance)
+            {
+                DataManager.instance.playerData.levelPersistentData.tutorialLevel.shownInitialZipline = true;
+                DataSaver.SaveFile();
+            }
         }
 
         #endregion

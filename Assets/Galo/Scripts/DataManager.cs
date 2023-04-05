@@ -11,7 +11,6 @@ namespace Galo
     {
         public static DataManager instance;
 
-        public AllGaloPlayers allPlayers;
         public GaloPlayerData playerData;
 
         public GaloCollectible latestCollectible;
@@ -86,9 +85,6 @@ namespace Galo
             if (latestCollectible != null)
                 playerData.collection.Add(latestCollectible);
 
-            allPlayers.savedPlayers[0] = allPlayers.lastUsedPlayer = playerData;
-            //TODO: also save this data to allPlayers.savedPlayers
-
             DataSaver.SaveFile();
             latestCollectible = null;
             UIManager.instance.UpdateProfilePage();
@@ -99,25 +95,14 @@ namespace Galo
             DataSaver.ClearPlayerData();
         }
 
-        public void SaveData()
-        {
-            allPlayers.savedPlayers[0] = allPlayers.lastUsedPlayer = playerData;
-            DataSaver.SaveFile();
-        }
+        public void SaveData() { DataSaver.SaveFile(); }
 
         ///<summary>We found existing save data on disc, so handle loading up the last used player account </summary>
         private void LoadSavedData()
         {
 
-            allPlayers = Galo.DataSaver.LoadFile();
-            if (allPlayers.savedPlayers.Count > 0)
-            {
-                if (allPlayers.lastUsedPlayer != null)
-                    LoadReturningPlayer(allPlayers.lastUsedPlayer);
-                else//load our first player
-                    LoadReturningPlayer(allPlayers.savedPlayers.ToArray()[0]);
-            }
-
+            playerData = Galo.DataSaver.LoadFile();
+            LoadReturningPlayer(playerData);
         }
 
 
@@ -126,16 +111,6 @@ namespace Galo
             playerData = new GaloPlayerData();
             playerHasTribe = false;
 
-            // if this is our first save, create the list and add the new player
-            if (allPlayers == null)
-                allPlayers = new AllGaloPlayers(playerData);
-            else
-            {
-                // otherwise just add the new player
-                allPlayers.savedPlayers.Add(playerData);
-            }
-
-            allPlayers.lastUsedPlayer = playerData;
             DataSaver.SaveFile();
             // NotificationManager.instance.DisplayNotificationAutoHide("Welcome to Galo Islands!<br>This tutorial stage will introduce you to the world<br>Have fun and thanks for playing!", false, 4f);
         }
@@ -147,7 +122,7 @@ namespace Galo
         public void LoadReturningPlayer(GaloPlayerData player)
         {
             playerHasTribe = (player.tribe.playables != null && player.tribe.playables.Length > 0);
-            playerData = allPlayers.lastUsedPlayer = player;
+            playerData = player;
 
             // since we have a tribe already saved, let's set them
             if (playerHasTribe)
@@ -170,7 +145,7 @@ namespace Galo
                 playerData.tribe = new();
 
             playerData.tribe.playables = tribeList.ToArray();
-            allPlayers.lastUsedPlayer = playerData;
+
             DataSaver.SaveFile();
             playerHasTribe = true;
         }

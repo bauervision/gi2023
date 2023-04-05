@@ -29,10 +29,18 @@ namespace Galo
         {
             onSceneStart.Invoke();
             // get the best time for this level
-            LevelTime bestTime = DataManager.instance.GetBestLevelTime((int)currentLevelName);
-
-            // make sure we know what to load when we want to replay
-            DataManager.instance.CurrentLevelToLoad = currentLevelName.ToString();
+            LevelTime bestTime = new LevelTime();
+            if (DataManager.instance)
+            {
+                bestTime = DataManager.instance.GetBestLevelTime((int)currentLevelName);
+                // make sure we know what to load when we want to replay
+                DataManager.instance.CurrentLevelToLoad = currentLevelName.ToString();
+            }
+            else
+            {
+                bestTime.minutes = 1;
+                bestTime.seconds = 0;
+            }
 
             if (bestTime != null && NotificationManager.instance != null)
                 NotificationManager.instance.DisplayNotificationAutoHide("Time to Beat... " + string.Format("{0:00}:{1:00}", bestTime.minutes, bestTime.seconds));

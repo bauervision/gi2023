@@ -52,11 +52,11 @@ namespace Galo
 
         public List<GaloLevel> availableLevels;
         public Tribe tribe;
+        public LevelPersistentData levelPersistentData;
 
 
         public GaloPlayerData()
         {
-            this.currentPlayer = "Caden";
             this.rank = 0;
             this.rankString = "Noob";
             this.XP = 0;

@@ -18,19 +18,19 @@ namespace Galo
             {
                 case GaloLevelNames.IsleOfNoob:
                     {
-                        if (EventDataManager.instance)
-                            if (EventDataManager.instance.currentLevel.galoLevel.levelPersistentData.isleOfNoobLevel.shownInitialFindBlood && pauseItemType == PauseItemType.IslandHeart)
+                        if (DataManager.instance)
+                            if (DataManager.instance.playerData.levelPersistentData.isleOfNoobLevel.shownInitialFindBlood && pauseItemType == PauseItemType.IslandHeart)
                                 this.gameObject.SetActive(false);
                         break;
                     }
                 default://Tutorial Level
                     {
-                        if (EventDataManager.instance)
-                            if (EventDataManager.instance.currentLevel.galoLevel.levelPersistentData.tutorialLevel.shownInitialFindBlood && pauseItemType == PauseItemType.IslandHeart)
+                        if (DataManager.instance)
+                            if (DataManager.instance.playerData.levelPersistentData.tutorialLevel.shownInitialFindBlood && pauseItemType == PauseItemType.IslandHeart)
                                 this.gameObject.SetActive(false);
 
-                        if (EventDataManager.instance)
-                            if (EventDataManager.instance.currentLevel.galoLevel.levelPersistentData.tutorialLevel.shownInitialZipline && pauseItemType == PauseItemType.Zipline)
+                        if (DataManager.instance)
+                            if (DataManager.instance.playerData.levelPersistentData.tutorialLevel.shownInitialZipline && pauseItemType == PauseItemType.Zipline)
                                 this.gameObject.SetActive(false);
                         break;
                     }
