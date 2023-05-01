@@ -154,5 +154,8 @@ namespace Galo
             if (tallyPageAnimator != null)
                 tallyPageAnimator.SetTrigger("Prev");
         }
+
+
+
     }
 }

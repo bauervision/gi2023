@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 namespace Galo
 {
-    public enum CoinType { Coin, Gem };
+    public enum CoinType { Coin, Gem, Star };
     public class Coin : MonoBehaviour
     {
         AudioSource _audioSource;
@@ -20,12 +20,23 @@ namespace Galo
 
         int myXpValue;
 
+        public UnityEvent onStarCollect = new UnityEvent();
+
         void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
-            myXpValue = myType == CoinType.Coin ? 1 : 100;
+            myXpValue = GetMyValue();
         }
 
+        int GetMyValue()
+        {
+            switch (myType)
+            {
+                case CoinType.Star: return 20000;
+                case CoinType.Gem: return 100;
+                default: return 10;
+            }
+        }
 
         void OnTriggerEnter(Collider other)
         {
@@ -51,11 +62,20 @@ namespace Galo
         {
             // disable the collider on this object right away
             gameObject.GetComponent<SphereCollider>().enabled = state;
+            if (myType != CoinType.Star)
+            {
 
-            if (transform.childCount > 0)
-                transform.GetChild(0).GetComponent<MeshRenderer>().enabled = state;
+                if (transform.childCount > 0)
+                    transform.GetChild(0).GetComponent<MeshRenderer>().enabled = state;
+                else
+                    gameObject.GetComponent<MeshRenderer>().enabled = state;
+            }
             else
-                gameObject.GetComponent<MeshRenderer>().enabled = state;
+            {// it is a star
+                for (int i = 0; i < transform.childCount; i++)
+                    transform.GetChild(i).gameObject.SetActive(false);
+                onStarCollect.Invoke();
+            }
 
 
         }

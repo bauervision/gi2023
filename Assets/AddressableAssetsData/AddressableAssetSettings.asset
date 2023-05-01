@@ -45,6 +45,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 766445c72624d844aa09eebd610d4194, type: 2}
   - {fileID: 11400000, guid: 62ff93c2f21f43048b6bb6a0b77562c0, type: 2}
   - {fileID: 11400000, guid: b953a0c48bd360e4eb50864b9d1c22d1, type: 2}
+  - {fileID: 11400000, guid: 5f5f34932c0c51d4187e9adfe24d092f, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -79,7 +80,7 @@ MonoBehaviour:
       - m_Id: f6547ecc33400ce4c82dffef62bde3ca
         m_Value: ServerData/[BuildTarget]
       - m_Id: 32dea8032f22cc74399b97ab7bdf114a
-        m_Value: https://2616946c-faed-44bb-9b51-a87e72d59ede.client-api.unity3dusercontent.com/client_api/v1/environments/production/buckets/bcdcc436-7ec1-49e8-b338-bb7ca67b3ec8/release_by_badge/latest/entry_by_path/content/?path=
+        m_Value: https://2616946c-faed-44bb-9b51-a87e72d59ede.client-api.unity3dusercontent.com/client_api/v1/environments/dev/buckets/bcdcc436-7ec1-49e8-b338-bb7ca67b3ec8/release_by_badge/latest/entry_by_path/content/?path=
     m_ProfileEntryNames:
     - m_Id: 23cfa6420aa65c24f9dcdce2ff01349a
       m_Name: BuildTarget

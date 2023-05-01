@@ -233,7 +233,7 @@ namespace Galo
                 instance.levelCoinCount++;
                 instance.coinsFoundText.text = instance.levelCoinCount.ToString() + " / " + instance.coinList.Length;
             }
-            else
+            else if (myType == CoinType.Gem)
             {
                 instance.levelGemCount++;
                 instance.gemsFoundText.text = instance.levelGemCount.ToString() + " / " + instance.gemList.Length;
@@ -249,15 +249,15 @@ namespace Galo
         public static void UpdateCollectible(GaloCollectible newCollectible)
         {
             if (DataManager.instance)
+            {
                 if (DataManager.instance.playerData != null)
                 {
                     DataManager.instance.playerData.XP += newCollectible.value;
-                    // prep for saving
-                    DataManager.instance.latestCollectible = newCollectible;
+                    DataManager.instance.SaveCollectibleData(newCollectible);
+                    UIManager.instance.UpdateProfilePage();
                 }
 
-            UIManager.instance.UpdateProfilePage();
-            DataSaver.SaveFile();
+            }
         }
         private void MonitorRanking()
         {

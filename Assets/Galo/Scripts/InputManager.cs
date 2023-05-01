@@ -26,16 +26,18 @@ namespace Galo
 
             if (CF2Input.GetKeyDown(KeyCode.Y)) { UIManager.instance.ToggleSearchTouch(); }
 
-            if (CF2Input.touchCount > 0 && CF2Input.touches[0].phase == TouchPhase.Began)
-                HandleClicks();
+            // if (CF2Input.touchCount > 0 && CF2Input.touches[0].phase == TouchPhase.Began)
+            //     HandleClicks();
 
-            if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
-                HandleClicks();
+            // if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+            //     HandleClicks();
 
         }
 
         void HandleClicks()
         {
+            NotificationManager.instance.DisplayNotificationAutoHide("Clicked Event fired");
+
             Ray ray = Camera.main.ScreenPointToRay(CF2Input.touches[0].position);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
@@ -48,7 +50,7 @@ namespace Galo
                     {
                         NotificationManager.instance.DisplayNotificationAutoHide("Collectible: touched");
 
-                        collectible.HandleClickEvent();
+                        //collectible.HandleClickEvent();
                     }
 
                 }

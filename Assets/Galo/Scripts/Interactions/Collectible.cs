@@ -8,7 +8,7 @@ namespace Galo
 {
     public enum CollectibleType { Jar, Horse, Bear, Ornament, Barrel, Bellows, Pulley, SoccerBall, LifePreserver, BarrelContainer };
 
-    public class Collectible : MonoBehaviour, IPointerDownHandler
+    public class Collectible : MonoBehaviour
     {
         AudioSource _audioSource;
         public AudioClip _audioClip;
@@ -22,7 +22,7 @@ namespace Galo
         public int myUIIndex;// lines up with the array in notification manager
 
         public UnityEvent onCollect = new UnityEvent();
-        public UnityEvent Clicked = new UnityEvent();
+
 
         private string[] collectibleText = new string[]{
     "You found a small jar, looks handmade. I wonder where the person who made it went?", // jar
@@ -64,24 +64,24 @@ namespace Galo
             return false;
         }
 
-        private void OnMouseDown()
-        {
-            Clicked.Invoke();
-        }
+        // private void OnMouseDown()
+        // {
+        //     Clicked.Invoke();
+        // }
 
-        void IPointerDownHandler.OnPointerDown(PointerEventData pointerEventData)
-        {
-            HandleClickEvent();
-        }
+        // void IPointerDownHandler.OnPointerDown(PointerEventData pointerEventData)
+        // {
+        //     HandleClickEvent();
+        // }
 
-        public void HandleClickEvent()
-        {
-            _audioSource.PlayOneShot(_audioClip);
-            EnableThisObject(false);
-            ExpManager.UpdateCollectible(_collectibleData);
-            onCollect.Invoke();
-            HandleRemoval();
-        }
+        // public void HandleClickEvent()
+        // {
+        //     _audioSource.PlayOneShot(_audioClip);
+        //     EnableThisObject(false);
+        //     ExpManager.UpdateCollectible(_collectibleData);
+        //     onCollect.Invoke();
+        //     HandleRemoval();
+        // }
 
         private void HandleCollectibles()
         {
@@ -133,14 +133,14 @@ namespace Galo
 
         void OnTriggerEnter(Collider other)
         {
-            // if (other.gameObject.tag == "Player")
-            // {
-            //     _audioSource.PlayOneShot(_audioClip);
-            //     EnableThisObject(false);
-            //     ExpManager.UpdateCollectible(_collectibleData);
-            //     onCollect.Invoke();
-            //     HandleRemoval();
-            // }
+            if (other.gameObject.tag == "Player")
+            {
+                _audioSource.PlayOneShot(_audioClip);
+                EnableThisObject(false);
+                ExpManager.UpdateCollectible(_collectibleData);
+                onCollect.Invoke();
+                HandleRemoval();
+            }
         }
 
 
@@ -164,11 +164,11 @@ namespace Galo
 
         }
 
-        private void Update()
-        {
-            if (hiddenFromStart)
-                return;
-            HandleCollectibles();
-        }
+        // private void Update()
+        // {
+        //     if (hiddenFromStart)
+        //         return;
+        //     HandleCollectibles();
+        // }
     }
 }

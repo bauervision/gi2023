@@ -159,10 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: 08da92632a5ce3640b3e7558fd9c2c70, type: 3}
   myType: 1
-  willSpin: 0
+  willSpin: 1
   SpinRate: 1
   SpinX: 0
-  SpinY: 0
+  SpinY: 1
   SpinZ: 0
 --- !u!205 &6387890702214977909
 LODGroup:

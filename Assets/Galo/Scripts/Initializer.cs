@@ -25,7 +25,7 @@ namespace Galo
                     a.SetActive(true);
         }
 
-        private void Start()
+        public void StartLevelEvents()
         {
             onSceneStart.Invoke();
             // get the best time for this level

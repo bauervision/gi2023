@@ -13,7 +13,6 @@ namespace Galo
 
         public GaloPlayerData playerData;
 
-        public GaloCollectible latestCollectible;
         public GameObject[] currentTribe;
 
         public bool playerHasTribe;
@@ -79,14 +78,12 @@ namespace Galo
         }
 
         /// <summary> Called when the player gets to the save point </smmary>
-        public void SaveCollectibleData()
+        public void SaveCollectibleData(GaloCollectible latestCollectible)
         {
             // update the data
-            if (latestCollectible != null)
-                playerData.collection.Add(latestCollectible);
+            playerData.collection.Add(latestCollectible);
 
             DataSaver.SaveFile();
-            latestCollectible = null;
             UIManager.instance.UpdateProfilePage();
         }
 
