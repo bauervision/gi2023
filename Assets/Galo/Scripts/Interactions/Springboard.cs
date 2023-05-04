@@ -12,7 +12,10 @@ namespace Galo
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Player")
+            {
                 other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(impulse, ForceMode.Impulse);
+                AudioManager.instance.PlayShroomBounce();
+            }
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Galo
     public class EventDataManager : MonoBehaviour
     {
         public static EventDataManager instance;
-        public ScriptableLevel currentLevel;
 
         private void Awake() { instance = this; }
 
@@ -22,11 +21,21 @@ namespace Galo
                 DataSaver.SaveFile();
             }
         }
+
         public void Tutorial_Zipline()
         {
             if (DataManager.instance)
             {
                 DataManager.instance.playerData.levelPersistentData.tutorialLevel.shownInitialZipline = true;
+                DataSaver.SaveFile();
+            }
+        }
+
+        public void Tutorial_FoundStar()
+        {
+            if (DataManager.instance)
+            {
+                DataManager.instance.playerData.levelPersistentData.tutorialLevel.foundStar = true;
                 DataSaver.SaveFile();
             }
         }

@@ -32,12 +32,21 @@ namespace Galo
 
         public void TakeDamage(vDamage damage)
         {
+            // if they have a power up, double it
+            if (PowerUpManager.instance.hasBreakingPower)
+                damage.damageValue = damage.damageValue * 2;
+
+
             if (damage.damageValue >= shellStrength)
             {
                 if (!isBroken)
                 {
                     isBroken = true;
                     StartCoroutine(BreakObject());
+
+                    // if they had breaking power, they lost it with this hit
+                    if (PowerUpManager.instance.hasBreakingPower)
+                        PowerUpManager.instance.LostBreakingPower();
                 }
             }
             else

@@ -123,7 +123,6 @@ namespace Galo
 
         }
 
-
         public void SetCurrentCharacterName(string name) { menus.characterName.text = name; }
         public void SetCurrentCharacterAbility(string name) { menus.ability.text = name; }
 

@@ -27,6 +27,14 @@ namespace Galo
             _audioSource = GetComponent<AudioSource>();
             myXpValue = GetMyValue();
         }
+        private void Start()
+        {
+            // only show this object once per level
+            if (DataManager.instance && myType == CoinType.Star)
+            {
+                gameObject.SetActive(!DataManager.instance.playerData.levelPersistentData.tutorialLevel.foundStar);
+            }
+        }
 
         int GetMyValue()
         {
@@ -71,10 +79,15 @@ namespace Galo
                     gameObject.GetComponent<MeshRenderer>().enabled = state;
             }
             else
-            {// it is a star
+            {
+                // it is a star
                 for (int i = 0; i < transform.childCount; i++)
                     transform.GetChild(i).gameObject.SetActive(false);
                 onStarCollect.Invoke();
+
+                // and save the data so they cant get it again
+                EventDataManager.instance.Tutorial_FoundStar();
+
             }
 
 

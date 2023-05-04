@@ -12,6 +12,7 @@
 /IOS Build/
 /ServerData/Android/
 Assets/Galo/Networking/Mirror/
+Assets/Unlimited *
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

@@ -8,6 +8,7 @@ namespace Galo
     public class InputManager : MonoBehaviour
     {
 
+        bool isCrouching = false;
         // Update is called once per frame
         void Update()
         {
@@ -16,6 +17,11 @@ namespace Galo
             if (CF2Input.GetKeyDown(KeyCode.P)) { PauseManager.instance.ToggleInGamePause(); }
             if (CF2Input.GetKeyDown(KeyCode.U)) { LevelManager.instance.ReplayLevel(); }
 
+            if (CF2Input.GetKeyDown(KeyCode.C))
+            {
+                isCrouching = !isCrouching;
+                GameObject.Find("Button-Crouch-Sprite").GetComponent<RectTransform>().rotation = new Quaternion(0, 0, isCrouching ? 180 : 0, 0);
+            }
             if (CF2Input.GetKeyUp(KeyCode.X)) { ExpManager.UpdateXP(500); }
 
             if (CF2Input.GetKeyDown(KeyCode.N))

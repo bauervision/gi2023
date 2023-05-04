@@ -21,6 +21,8 @@ namespace Galo
         public AudioClip deathSound;
         public AudioClip haloSound;
         public AudioClip haloPointsOnSound;
+        public AudioClip shroomBounce;
+        public AudioClip powerUpSound;
 
         private void Awake()
         {
@@ -80,6 +82,8 @@ namespace Galo
         public void PlayDeathSound() { audioSource.PlayOneShot(deathSound); }
         public void PlayHaloSound() { audioSource.PlayOneShot(haloSound); }
         public void PlayHaloPointsOnSound() { audioSource.PlayOneShot(haloPointsOnSound); }
+        public void PlayShroomBounce() { audioSource.PlayOneShot(shroomBounce); }
+        public void PlayPowerup() { audioSource.PlayOneShot(powerUpSound); }
 
 
     }

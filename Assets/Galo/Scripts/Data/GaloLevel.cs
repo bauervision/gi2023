@@ -65,6 +65,7 @@ namespace Galo
     {
         public bool shownInitialFindBlood;
         public bool shownInitialZipline;
+        public bool foundStar;
     }
 
     [System.Serializable]

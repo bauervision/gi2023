@@ -246,7 +246,6 @@ namespace Galo
             List<GameObject> savedTribe = new List<GameObject>();
             List<Sprite> savedTribeSprites = new List<Sprite>();
 
-
             for (int i = 0; i <= 5; i++)
             {
                 GameObject found = allCharacters.ToList().Find(c => c.name == names[i]);
